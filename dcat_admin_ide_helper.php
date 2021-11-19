@@ -51,12 +51,22 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection payload
      * @property Grid\Column|Collection exception
      * @property Grid\Column|Collection failed_at
-     * @property Grid\Column|Collection url
-     * @property Grid\Column|Collection service_items_image
-     * @property Grid\Column|Collection service_steps_image
-     * @property Grid\Column|Collection brief_image
+     * @property Grid\Column|Collection banners
+     * @property Grid\Column|Collection service_items
+     * @property Grid\Column|Collection service_steps
+     * @property Grid\Column|Collection examples
      * @property Grid\Column|Collection cube_id
      * @property Grid\Column|Collection alias
+     * @property Grid\Column|Collection banner
+     * @property Grid\Column|Collection video_title
+     * @property Grid\Column|Collection video_url
+     * @property Grid\Column|Collection video_brief
+     * @property Grid\Column|Collection en_name
+     * @property Grid\Column|Collection cover
+     * @property Grid\Column|Collection bg_img
+     * @property Grid\Column|Collection dot_img
+     * @property Grid\Column|Collection tags_img
+     * @property Grid\Column|Collection videos_duration
      * @property Grid\Column|Collection email
      * @property Grid\Column|Collection token
      * @property Grid\Column|Collection tokenable_type
@@ -64,6 +74,14 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection abilities
      * @property Grid\Column|Collection last_used_at
      * @property Grid\Column|Collection link_id
+     * @property Grid\Column|Collection module_menu_id
+     * @property Grid\Column|Collection features
+     * @property Grid\Column|Collection prictice_title
+     * @property Grid\Column|Collection prictice_video_url
+     * @property Grid\Column|Collection prictice_brief
+     * @property Grid\Column|Collection card_title
+     * @property Grid\Column|Collection card_img
+     * @property Grid\Column|Collection card_brief
      * @property Grid\Column|Collection mobile
      * @property Grid\Column|Collection email_verified_at
      * @property Grid\Column|Collection password_tips
@@ -108,12 +126,22 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection payload(string $label = null)
      * @method Grid\Column|Collection exception(string $label = null)
      * @method Grid\Column|Collection failed_at(string $label = null)
-     * @method Grid\Column|Collection url(string $label = null)
-     * @method Grid\Column|Collection service_items_image(string $label = null)
-     * @method Grid\Column|Collection service_steps_image(string $label = null)
-     * @method Grid\Column|Collection brief_image(string $label = null)
+     * @method Grid\Column|Collection banners(string $label = null)
+     * @method Grid\Column|Collection service_items(string $label = null)
+     * @method Grid\Column|Collection service_steps(string $label = null)
+     * @method Grid\Column|Collection examples(string $label = null)
      * @method Grid\Column|Collection cube_id(string $label = null)
      * @method Grid\Column|Collection alias(string $label = null)
+     * @method Grid\Column|Collection banner(string $label = null)
+     * @method Grid\Column|Collection video_title(string $label = null)
+     * @method Grid\Column|Collection video_url(string $label = null)
+     * @method Grid\Column|Collection video_brief(string $label = null)
+     * @method Grid\Column|Collection en_name(string $label = null)
+     * @method Grid\Column|Collection cover(string $label = null)
+     * @method Grid\Column|Collection bg_img(string $label = null)
+     * @method Grid\Column|Collection dot_img(string $label = null)
+     * @method Grid\Column|Collection tags_img(string $label = null)
+     * @method Grid\Column|Collection videos_duration(string $label = null)
      * @method Grid\Column|Collection email(string $label = null)
      * @method Grid\Column|Collection token(string $label = null)
      * @method Grid\Column|Collection tokenable_type(string $label = null)
@@ -121,6 +149,14 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection abilities(string $label = null)
      * @method Grid\Column|Collection last_used_at(string $label = null)
      * @method Grid\Column|Collection link_id(string $label = null)
+     * @method Grid\Column|Collection module_menu_id(string $label = null)
+     * @method Grid\Column|Collection features(string $label = null)
+     * @method Grid\Column|Collection prictice_title(string $label = null)
+     * @method Grid\Column|Collection prictice_video_url(string $label = null)
+     * @method Grid\Column|Collection prictice_brief(string $label = null)
+     * @method Grid\Column|Collection card_title(string $label = null)
+     * @method Grid\Column|Collection card_img(string $label = null)
+     * @method Grid\Column|Collection card_brief(string $label = null)
      * @method Grid\Column|Collection mobile(string $label = null)
      * @method Grid\Column|Collection email_verified_at(string $label = null)
      * @method Grid\Column|Collection password_tips(string $label = null)
@@ -170,12 +206,22 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection payload
      * @property Show\Field|Collection exception
      * @property Show\Field|Collection failed_at
-     * @property Show\Field|Collection url
-     * @property Show\Field|Collection service_items_image
-     * @property Show\Field|Collection service_steps_image
-     * @property Show\Field|Collection brief_image
+     * @property Show\Field|Collection banners
+     * @property Show\Field|Collection service_items
+     * @property Show\Field|Collection service_steps
+     * @property Show\Field|Collection examples
      * @property Show\Field|Collection cube_id
      * @property Show\Field|Collection alias
+     * @property Show\Field|Collection banner
+     * @property Show\Field|Collection video_title
+     * @property Show\Field|Collection video_url
+     * @property Show\Field|Collection video_brief
+     * @property Show\Field|Collection en_name
+     * @property Show\Field|Collection cover
+     * @property Show\Field|Collection bg_img
+     * @property Show\Field|Collection dot_img
+     * @property Show\Field|Collection tags_img
+     * @property Show\Field|Collection videos_duration
      * @property Show\Field|Collection email
      * @property Show\Field|Collection token
      * @property Show\Field|Collection tokenable_type
@@ -183,6 +229,14 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection abilities
      * @property Show\Field|Collection last_used_at
      * @property Show\Field|Collection link_id
+     * @property Show\Field|Collection module_menu_id
+     * @property Show\Field|Collection features
+     * @property Show\Field|Collection prictice_title
+     * @property Show\Field|Collection prictice_video_url
+     * @property Show\Field|Collection prictice_brief
+     * @property Show\Field|Collection card_title
+     * @property Show\Field|Collection card_img
+     * @property Show\Field|Collection card_brief
      * @property Show\Field|Collection mobile
      * @property Show\Field|Collection email_verified_at
      * @property Show\Field|Collection password_tips
@@ -227,12 +281,22 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection payload(string $label = null)
      * @method Show\Field|Collection exception(string $label = null)
      * @method Show\Field|Collection failed_at(string $label = null)
-     * @method Show\Field|Collection url(string $label = null)
-     * @method Show\Field|Collection service_items_image(string $label = null)
-     * @method Show\Field|Collection service_steps_image(string $label = null)
-     * @method Show\Field|Collection brief_image(string $label = null)
+     * @method Show\Field|Collection banners(string $label = null)
+     * @method Show\Field|Collection service_items(string $label = null)
+     * @method Show\Field|Collection service_steps(string $label = null)
+     * @method Show\Field|Collection examples(string $label = null)
      * @method Show\Field|Collection cube_id(string $label = null)
      * @method Show\Field|Collection alias(string $label = null)
+     * @method Show\Field|Collection banner(string $label = null)
+     * @method Show\Field|Collection video_title(string $label = null)
+     * @method Show\Field|Collection video_url(string $label = null)
+     * @method Show\Field|Collection video_brief(string $label = null)
+     * @method Show\Field|Collection en_name(string $label = null)
+     * @method Show\Field|Collection cover(string $label = null)
+     * @method Show\Field|Collection bg_img(string $label = null)
+     * @method Show\Field|Collection dot_img(string $label = null)
+     * @method Show\Field|Collection tags_img(string $label = null)
+     * @method Show\Field|Collection videos_duration(string $label = null)
      * @method Show\Field|Collection email(string $label = null)
      * @method Show\Field|Collection token(string $label = null)
      * @method Show\Field|Collection tokenable_type(string $label = null)
@@ -240,6 +304,14 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection abilities(string $label = null)
      * @method Show\Field|Collection last_used_at(string $label = null)
      * @method Show\Field|Collection link_id(string $label = null)
+     * @method Show\Field|Collection module_menu_id(string $label = null)
+     * @method Show\Field|Collection features(string $label = null)
+     * @method Show\Field|Collection prictice_title(string $label = null)
+     * @method Show\Field|Collection prictice_video_url(string $label = null)
+     * @method Show\Field|Collection prictice_brief(string $label = null)
+     * @method Show\Field|Collection card_title(string $label = null)
+     * @method Show\Field|Collection card_img(string $label = null)
+     * @method Show\Field|Collection card_brief(string $label = null)
      * @method Show\Field|Collection mobile(string $label = null)
      * @method Show\Field|Collection email_verified_at(string $label = null)
      * @method Show\Field|Collection password_tips(string $label = null)

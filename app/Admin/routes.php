@@ -35,5 +35,10 @@ Route::group([
     $router->get('api/links', 'ApiController@links');
     // 首页
     $router->resource('home_pages', 'HomePageController');
-
+    // 模块页
+    $router->resource('menu_pages', 'MenuPageController');
+    // 大模块
+    $router->resource('module_menus', 'ModuleMenuController');
+    // tab
+    $router->resource('tabs', 'TabController');
 });

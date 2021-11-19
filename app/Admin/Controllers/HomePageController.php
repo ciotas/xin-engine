@@ -31,10 +31,6 @@ class HomePageController extends AdminController
             $grid->disableBatchDelete();
             $grid->disableRowSelector();
             
-            $grid->filter(function (Grid\Filter $filter) {
-                $filter->equal('id');
-        
-            });
         });
     }
 

@@ -29,7 +29,6 @@ class LinkController extends AdminController
             $grid->column('cube_id')->display(function($val) {
                 return Cube::find($val)->name;
             });
-        
             
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
