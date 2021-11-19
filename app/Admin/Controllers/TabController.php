@@ -72,7 +72,7 @@ class TabController extends AdminController
             
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
-                $filter->equal('id');
+                $filter->like('name');
         
             });
         });
