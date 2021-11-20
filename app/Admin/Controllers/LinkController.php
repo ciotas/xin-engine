@@ -12,6 +12,7 @@ use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Storage;
 
 class LinkController extends AdminController
 {
@@ -43,9 +44,11 @@ class LinkController extends AdminController
                 $modal->title($this->name.'音频');
                 // 自定义图标
                 $modal->icon('feather icon-headphones');
+                $audio = $this->audio ? Storage::disk('oss')->url($this->audio) : '';
+
                 return "<div style='padding:10px 10px 0'>
                 <audio height='480' controls='controls'>
-                    <source src='$this->audio' type='video/mp4' />
+                    <source src='$audio' type='video/mp4' />
                 </audio>
                 </div>";
             });
@@ -94,13 +97,22 @@ class LinkController extends AdminController
                 $form->text('name', '步骤名');
                 $form->text('alias', '步骤别名');
                 $form->text('brief', '说明');
-                $form->url('image', '图片');
-                $form->url('audio', '音频');
+                $form->image('image', '图片')
+                ->uniqueName()
+                ->move('images')
+                ->accept('jpg,png,gif,jpeg', 'image/*')
+                ->chunkSize(1024)
+                ->autoUpload();
+
+                $form->file('audio', '音频')
+                ->uniqueName()
+                ->move('audios')
+                ->chunkSize(1024)
+                ->maxSize(1024*50)
+                ->autoUpload();
                 $form->url('video', '视频');
             });
         
-            $form->display('created_at');
-            $form->display('updated_at');
             $form->disableViewCheck();
         });
     }

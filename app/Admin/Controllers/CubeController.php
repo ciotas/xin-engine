@@ -62,12 +62,23 @@ class CubeController extends AdminController
                 $form->text('name', '环节名');
                 $form->text('alias', '环节别名');
                 $form->text('brief', '说明');
-                $form->url('image', '图片');
-                $form->url('audio', '音频');
+                $form->image('image', '图片')
+                ->uniqueName()
+                ->move('images')
+                ->accept('jpg,png,gif,jpeg', 'image/*')
+                ->chunkSize(1024)
+                ->autoUpload();
+
+                $form->file('audio', '音频')
+                ->uniqueName()
+                ->move('audios')
+                ->chunkSize(1024)
+                ->maxSize(1024*50)
+                ->autoUpload();
+
                 $form->url('video', '视频');
             });
-            $form->display('created_at');
-            $form->display('updated_at');
+            
             $form->disableViewCheck();
         });
     }

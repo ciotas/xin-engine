@@ -5,6 +5,7 @@ use App\Models\Link;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Grid\LazyRenderable;
 use Dcat\Admin\Widgets\Table;
+use Illuminate\Support\Facades\Storage;
 
 class LinkTable extends LazyRenderable
 {
@@ -29,9 +30,10 @@ class LinkTable extends LazyRenderable
                 $modal->title($this->name.'音频');
                 // 自定义图标
                 $modal->icon('feather icon-headphones');
+                $audio = $this->audio ? Storage::disk('oss')->url($this->audio) : '';
                 return "<div style='padding:10px 10px 0'>
                 <audio height='480' controls='controls'>
-                    <source src='$this->audio' type='video/mp4' />
+                    <source src='$audio' type='audio/mp3' />
                 </audio>
                 </div>";
             });
