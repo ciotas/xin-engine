@@ -15,8 +15,8 @@ class CreateTabsTable extends Migration
     {
         Schema::create('tabs', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('module_menu_id')->index()->nullable()->comment('大模块');
-            $table->foreign('module_menu_id')->references('id')->on('module_menus')->onDelete('cascade');
+            // $table->unsignedInteger('module_menu_id')->index()->nullable()->comment('大模块');
+            // $table->foreign('module_menu_id')->references('id')->on('module_menus')->onDelete('cascade');
             $table->string('name')->nullable()->comment('名称');
             $table->text('brief')->nullable()->comment('介绍');
             $table->json('features')->nullable()->comment('特点');

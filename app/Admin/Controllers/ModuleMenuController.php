@@ -2,11 +2,14 @@
 
 namespace App\Admin\Controllers;
 
+use App\Admin\Forms\TabList;
 use App\Admin\Repositories\ModuleMenu;
+use App\Models\Tab;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Http\Controllers\AdminController;
+use Dcat\Admin\Widgets\Table;
 
 class ModuleMenuController extends AdminController
 {
@@ -52,6 +55,24 @@ class ModuleMenuController extends AdminController
                 return "<div style='padding:10px 10px 0'>$this->video_brief</div>";
             });
             $grid->column('videos_duration');
+
+            $grid->column('tabs','所属栏目')->display('栏目')
+            ->modal(function ($modal) {
+                // 设置弹窗标题
+                $modal->title($this->name.'的特点');
+        
+                // 自定义图标
+                $modal->icon('feather icon-award');
+                $titles = [
+                    '栏目ID',
+                    '名称',
+                ];
+                
+                $tabs = $this->tabs->pluck('name', 'id');
+                $table = $this->tabs ? Table::make($titles, $tabs) : '';
+
+                return "<div style='padding:10px 10px 0'>$table</div>";
+            });
             
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
@@ -68,7 +89,7 @@ class ModuleMenuController extends AdminController
      */
     protected function form()
     {
-        return Form::make(new ModuleMenu(), function (Form $form) {
+        return Form::make(ModuleMenu::with('tabs'), function (Form $form) {
             $form->display('id');
             $form->text('name');
             $form->text('en_name');
@@ -107,6 +128,17 @@ class ModuleMenuController extends AdminController
             $form->url('video_url');
             $form->textarea('video_brief');
             $form->text('videos_duration');
+            $form->divider();
+            $form->multipleSelect('tabs', '栏目Tab')
+                ->options(Tab::all()->pluck('name', 'id'))
+                ->customFormat(function ($v) {
+                    if (! $v) {
+                        return [];
+                    }
+                    // 从数据库中查出的二维数组中转化成ID
+                    return array_column($v, 'id');
+                })->help('可选，请到栏目菜单先上传栏目内容');
+        
             $form->disableViewCheck();
 
         });

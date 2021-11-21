@@ -61,6 +61,8 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection video_title
      * @property Grid\Column|Collection video_url
      * @property Grid\Column|Collection video_brief
+     * @property Grid\Column|Collection theme_id
+     * @property Grid\Column|Collection module_menu_id
      * @property Grid\Column|Collection en_name
      * @property Grid\Column|Collection cover
      * @property Grid\Column|Collection bg_img
@@ -74,7 +76,6 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection abilities
      * @property Grid\Column|Collection last_used_at
      * @property Grid\Column|Collection link_id
-     * @property Grid\Column|Collection module_menu_id
      * @property Grid\Column|Collection features
      * @property Grid\Column|Collection prictice_title
      * @property Grid\Column|Collection prictice_video_url
@@ -136,6 +137,8 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection video_title(string $label = null)
      * @method Grid\Column|Collection video_url(string $label = null)
      * @method Grid\Column|Collection video_brief(string $label = null)
+     * @method Grid\Column|Collection theme_id(string $label = null)
+     * @method Grid\Column|Collection module_menu_id(string $label = null)
      * @method Grid\Column|Collection en_name(string $label = null)
      * @method Grid\Column|Collection cover(string $label = null)
      * @method Grid\Column|Collection bg_img(string $label = null)
@@ -149,7 +152,6 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection abilities(string $label = null)
      * @method Grid\Column|Collection last_used_at(string $label = null)
      * @method Grid\Column|Collection link_id(string $label = null)
-     * @method Grid\Column|Collection module_menu_id(string $label = null)
      * @method Grid\Column|Collection features(string $label = null)
      * @method Grid\Column|Collection prictice_title(string $label = null)
      * @method Grid\Column|Collection prictice_video_url(string $label = null)
@@ -216,6 +218,8 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection video_title
      * @property Show\Field|Collection video_url
      * @property Show\Field|Collection video_brief
+     * @property Show\Field|Collection theme_id
+     * @property Show\Field|Collection module_menu_id
      * @property Show\Field|Collection en_name
      * @property Show\Field|Collection cover
      * @property Show\Field|Collection bg_img
@@ -229,7 +233,6 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection abilities
      * @property Show\Field|Collection last_used_at
      * @property Show\Field|Collection link_id
-     * @property Show\Field|Collection module_menu_id
      * @property Show\Field|Collection features
      * @property Show\Field|Collection prictice_title
      * @property Show\Field|Collection prictice_video_url
@@ -291,6 +294,8 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection video_title(string $label = null)
      * @method Show\Field|Collection video_url(string $label = null)
      * @method Show\Field|Collection video_brief(string $label = null)
+     * @method Show\Field|Collection theme_id(string $label = null)
+     * @method Show\Field|Collection module_menu_id(string $label = null)
      * @method Show\Field|Collection en_name(string $label = null)
      * @method Show\Field|Collection cover(string $label = null)
      * @method Show\Field|Collection bg_img(string $label = null)
@@ -304,7 +309,6 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection abilities(string $label = null)
      * @method Show\Field|Collection last_used_at(string $label = null)
      * @method Show\Field|Collection link_id(string $label = null)
-     * @method Show\Field|Collection module_menu_id(string $label = null)
      * @method Show\Field|Collection features(string $label = null)
      * @method Show\Field|Collection prictice_title(string $label = null)
      * @method Show\Field|Collection prictice_video_url(string $label = null)

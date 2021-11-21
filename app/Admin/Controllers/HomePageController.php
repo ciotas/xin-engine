@@ -67,13 +67,6 @@ class HomePageController extends AdminController
             ->chunkSize(1024)
             ->autoUpload();
             
-            $form->image('brief')
-            ->uniqueName()
-            ->move('images')
-            ->accept('jpg,png,gif,jpeg', 'image/*')
-            ->chunkSize(1024)
-            ->autoUpload();
-        
             $form->multipleImage('examples')
             ->uniqueName()
             ->move('images')
@@ -81,6 +74,13 @@ class HomePageController extends AdminController
             ->chunkSize(1024)
             ->autoUpload()
             ->sortable();
+
+            $form->image('brief')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png,gif,jpeg', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload();
 
             $form->disableViewCheck();
 

@@ -21,9 +21,9 @@ class TabController extends AdminController
     {
         return Grid::make(new Tab(), function (Grid $grid) {
             $grid->column('id')->sortable();
-            $grid->column('module_menu_id')->display(function($val) {
-                return ModuleMenu::find($val)->name;
-            });
+            // $grid->column('module_menu_id')->display(function($val) {
+            //     return ModuleMenu::find($val)->name;
+            // });
             $grid->column('name');
             $grid->column('brief');
             $grid->column('features')->display('特点')
@@ -37,8 +37,9 @@ class TabController extends AdminController
                     '描述',
                     '名称',
                 ];
-                $table = Table::make($titles, $this->features);
-        
+                
+                $table = $this->features ? Table::make($titles, $this->features) : '';
+
                 return "<div style='padding:10px 10px 0'>$table</div>";
             });
             $grid->column('prictice_title');
@@ -87,31 +88,30 @@ class TabController extends AdminController
     {
         return Form::make(new Tab(), function (Form $form) {
             $form->display('id');
-            $form->select('module_menu_id')->options(ModuleMenu::all()->pluck('name', 'id'));
-            $form->text('name');
+            // $form->select('module_menu_id')->options(ModuleMenu::all()->pluck('name', 'id'));
+            $form->text('name')->rules('required');
             $form->text('brief');
 
             $form->table('features', function ($table) {
                 $table->text('title', '标题');
                 $table->textarea('desc', '描述');
-            });
+            })->rules('required');
             // ->saving(function ($v) {
             //     return json_encode($v);
             // });
 
-            $form->text('prictice_title');
-            $form->text('prictice_video_url');
+            $form->text('prictice_title')->rules('required');
+            $form->url('prictice_video_url');
             $form->editor('prictice_brief');
-            $form->text('card_title');
-            $form->image('card_img')
+            $form->text('card_title')->rules('required');
+            $form->image('card_img')->rules('required')
             ->uniqueName()
             ->move('images')
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
             ->autoUpload();
             $form->textarea('card_brief');
-        
-            
+
             $form->disableViewCheck();
         });
     }

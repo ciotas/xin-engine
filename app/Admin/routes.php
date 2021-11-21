@@ -41,4 +41,7 @@ Route::group([
     $router->resource('module_menus', 'ModuleMenuController');
     // tab
     $router->resource('tabs', 'TabController');
+    // 主题
+    $router->resource('themes', 'ThemeController');
+    
 });

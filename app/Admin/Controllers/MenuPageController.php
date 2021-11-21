@@ -39,14 +39,7 @@ class MenuPageController extends AdminController
                 $modal->icon('feather icon-file-text');
                 return "<div style='padding:10px 10px 0'>$this->video_brief</div>";
             });;
-            $grid->column('title');
-            $grid->column('brief')->display('查看')->modal(function ($modal) {
-                // 设置弹窗标题
-                $modal->title('模块说明');
-                // 自定义图标
-                $modal->icon('feather icon-file-text');
-                return "<div style='padding:10px 10px 0'>$this->brief</div>";
-            });;
+            
             $grid->column('image')->image('', 60, 60);
             
             $grid->disableViewButton();
@@ -81,9 +74,7 @@ class MenuPageController extends AdminController
             $form->url('video_url');
 
             $form->textarea('video_brief');
-            $form->text('title');
-            $form->textarea('brief');
-
+          
             $form->image('image')
             ->uniqueName()
             ->move('images')
