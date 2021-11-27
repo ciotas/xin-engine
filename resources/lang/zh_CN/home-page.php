@@ -6,7 +6,7 @@ return [
     ],
     'fields' => [
         'banners' => 'Banners',
-        'service_items' => '服务项图片',
+        'service_items' => '腰峰图片',
         'service_steps' => '服务步骤图片',
         'brief' => '介绍图',
         'examples' => '案例图'

@@ -11,6 +11,7 @@ class Tab extends Model
 	use HasDateTimeFormatter;   
 
 	protected $casts = [
-		'features' => 'json'
+		'features' => 'json',
+		'cards'=>'json'
 	];
  }

@@ -13,7 +13,8 @@ class ModuleMenu extends Model
     protected $table = 'module_menus';
 
     protected $casts = [
-        'tags_img' => 'json'
+        'tags_img' => 'json',
+        'questions' => 'json'
     ];
     
     public function tabs(): BelongsToMany

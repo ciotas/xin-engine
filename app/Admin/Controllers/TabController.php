@@ -21,11 +21,16 @@ class TabController extends AdminController
     {
         return Grid::make(new Tab(), function (Grid $grid) {
             $grid->column('id')->sortable();
-            // $grid->column('module_menu_id')->display(function($val) {
-            //     return ModuleMenu::find($val)->name;
-            // });
             $grid->column('name');
             $grid->column('brief');
+            $grid->column('brief')->display('查看')->modal(function ($modal) {
+                // 设置弹窗标题
+                $modal->title('介绍');
+                // 自定义图标
+                $modal->icon('feather icon-file-text');
+                return "<div style='padding:10px 10px 0'>$this->brief</div>";
+            });
+
             $grid->column('features')->display('特点')
             ->modal(function ($modal) {
                 // 设置弹窗标题
@@ -54,22 +59,26 @@ class TabController extends AdminController
                 </video>
                 </div>";
             });
-            $grid->column('prictice_brief')->display('查看')->modal(function ($modal) {
+            $grid->column('prictice_difficult');
+            $grid->column('prictice_points')->display('查看')
+            ->modal(function ($modal) {
                 // 设置弹窗标题
-                $modal->title('实操描述');
+                $modal->title($this->name.'的实操要点');
+        
                 // 自定义图标
-                $modal->icon('feather icon-file-text');
-                return "<div style='padding:10px 10px 0'>$this->prictice_brief</div>";
-            });
-            $grid->column('card_title');
-            $grid->column('card_img')->image('', 60, 60);
-            $grid->column('card_brief')->display('查看')->modal(function ($modal) {
-                // 设置弹窗标题
-                $modal->title('工具卡描述');
-                // 自定义图标
-                $modal->icon('feather icon-file-text');
-                return "<div style='padding:10px 10px 0'>$this->card_brief</div>";
-            });
+                $modal->icon('feather icon-award');
+                $titles = [
+                    '说明',
+                    '名称',
+                ];
+                
+                // $tabs = $this->tabs->pluck('name', 'id');
+                $table = $this->prictice_points ? Table::make($titles, json_decode($this->prictice_points,true)) : '';
+
+                return "<div style='padding:10px 10px 0'>$table</div>";
+            });;
+
+            $grid->column('cards')->image('', 40, 40);
             
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
@@ -90,7 +99,8 @@ class TabController extends AdminController
             $form->display('id');
             // $form->select('module_menu_id')->options(ModuleMenu::all()->pluck('name', 'id'));
             $form->text('name')->rules('required');
-            $form->text('brief');
+            $form->text('title')->rules('required');
+            $form->textarea('brief');
 
             $form->table('features', function ($table) {
                 $table->text('title', '标题');
@@ -102,15 +112,27 @@ class TabController extends AdminController
 
             $form->text('prictice_title')->rules('required');
             $form->url('prictice_video_url');
-            $form->editor('prictice_brief');
-            $form->text('card_title')->rules('required');
-            $form->image('card_img')->rules('required')
+            $form->image('prictice_video_cover')
             ->uniqueName()
             ->move('images')
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
             ->autoUpload();
-            $form->textarea('card_brief');
+            $form->text('prictice_video_duration');
+            $form->number('prictice_difficult')->rules('numeric|min:0|max:10')->help('总分10分，例如：4星半=9分');
+
+            $form->table('prictice_points', function ($table) {
+                $table->text('title', '要点');
+                $table->textarea('desc', '说明');
+            })->rules('required');
+
+            $form->multipleImage('cards')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png,gif,jpeg', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload()
+            ->sortable();
 
             $form->disableViewCheck();
         });

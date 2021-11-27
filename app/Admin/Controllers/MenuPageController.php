@@ -38,7 +38,8 @@ class MenuPageController extends AdminController
                 // 自定义图标
                 $modal->icon('feather icon-file-text');
                 return "<div style='padding:10px 10px 0'>$this->video_brief</div>";
-            });;
+            });
+            $grid->column('video_cover')->image('', 60, 60);
             
             $grid->column('image')->image('', 60, 60);
             
@@ -72,6 +73,14 @@ class MenuPageController extends AdminController
             $form->text('video_title');
 
             $form->url('video_url');
+
+            $form->image('video_cover')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png,gif,jpeg', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload();
+        
 
             $form->textarea('video_brief');
           

@@ -22,7 +22,7 @@ class HomePageController extends AdminController
             $grid->column('banners')->image('', 60, 60);
             $grid->column('service_items')->image('', 60, 60);
             $grid->column('service_steps')->image('', 60, 60);
-            $grid->column('brief_image')->image('', 60, 60);
+            $grid->column('brief')->image('', 60, 60);
             $grid->column('examples')->image('', 60, 60);
 
             $grid->disableViewButton();

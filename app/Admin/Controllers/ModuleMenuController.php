@@ -23,7 +23,7 @@ class ModuleMenuController extends AdminController
         return Grid::make(new ModuleMenu(), function (Grid $grid) {
             $grid->column('id')->sortable();
             $grid->column('name');
-            $grid->column('en_name');
+            // $grid->column('en_name');
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title($this->name.'说明');
@@ -94,6 +94,7 @@ class ModuleMenuController extends AdminController
             $form->text('name');
             $form->text('en_name');
             $form->textarea('brief');
+            $form->list('questions');
 
             $form->image('cover')
             ->uniqueName()
@@ -127,6 +128,13 @@ class ModuleMenuController extends AdminController
             $form->text('video_title');
             $form->url('video_url');
             $form->textarea('video_brief');
+            $form->image('video_cover')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png,gif,jpeg', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload();
+
             $form->text('videos_duration');
             $form->divider();
             $form->multipleSelect('tabs', '栏目Tab')
