@@ -23,6 +23,7 @@ class HomePageController extends AdminController
             $grid->column('service_items')->image('', 60, 60);
             $grid->column('service_steps')->image('', 60, 60);
             $grid->column('brief')->image('', 60, 60);
+            $grid->column('case_bg')->image('', 60, 60);
             $grid->column('examples')->image('', 60, 60);
 
             $grid->disableViewButton();
@@ -51,7 +52,8 @@ class HomePageController extends AdminController
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
             ->autoUpload()
-            ->sortable();
+            ->sortable()
+            ->help('可同时上传多张图片');
 
             $form->image('service_items')
             ->uniqueName()
@@ -66,14 +68,23 @@ class HomePageController extends AdminController
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
             ->autoUpload();
-            
-            $form->multipleImage('examples')
+
+            $form->image('case_bg')
             ->uniqueName()
             ->move('images')
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
             ->autoUpload()
             ->sortable();
+
+            $form->multipleImage('examples')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png,gif,jpeg', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload()
+            ->sortable()
+            ->help('可同时上传多张图片');
 
             $form->image('brief')
             ->uniqueName()
