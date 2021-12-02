@@ -14,6 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::prefix('v1')
+->name('api.v1.')
+->group(function() {
+    Route::middleware('auth:sanctum')->group(function() {
+        // 登录可以访问
+    });
+    Route::group([], function() {
+        // 游客可以访问
+        // 一级页面
+        Route::get('home-pages', 'HomePageController@index')->name('home-pages');
+        Route::get('menu-pages', 'MenuPageController@index')->name('menu-pages');
+
+    });
 });

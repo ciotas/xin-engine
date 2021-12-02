@@ -74,8 +74,7 @@ class HomePageController extends AdminController
             ->move('images')
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
-            ->autoUpload()
-            ->sortable();
+            ->autoUpload();
 
             $form->multipleImage('examples')
             ->uniqueName()

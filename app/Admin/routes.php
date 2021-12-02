@@ -25,8 +25,6 @@ Route::group([
     $router->resource('steps', 'StepController');
     // 文档列表
     $router->resource('docs', 'DocController');
-    // 文档内容
-    $router->resource('doc_contents', 'DocContentController');
     // api modules
     $router->get('api/modules', 'ApiController@modules');
     // api cubes
