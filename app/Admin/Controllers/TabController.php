@@ -73,7 +73,7 @@ class TabController extends AdminController
                 ];
                 
                 // $tabs = $this->tabs->pluck('name', 'id');
-                $table = $this->prictice_points ? Table::make($titles, json_decode($this->prictice_points,true)) : '';
+                $table = $this->prictice_points ? Table::make($titles, $this->prictice_points) : '';
 
                 return "<div style='padding:10px 10px 0'>$table</div>";
             });;
