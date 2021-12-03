@@ -21,36 +21,43 @@ class HomePage extends Model
     public function getBanners()
     {
         $data = [];
-        foreach($this->banners as $banner)
-        {
-            $data[] = Storage::disk('oss')->url($banner);
+        if ($this->banners) {
+            foreach($this->banners as $banner)
+            {
+                $data[] = Storage::disk('oss')->url($banner);
+            }
         }
+    
         return $data;
     }
     public function getExamples()
     {
         $data = [];
-        foreach($this->examples as $example)
+        if ($this->examples)
         {
-            $data[] = Storage::disk('oss')->url($example);
+            foreach($this->examples as $example)
+            {
+                $data[] = Storage::disk('oss')->url($example);
+            }
         }
+        
         return $data;
     }
     public function getCaseBg()
     {
-        return Storage::disk('oss')->url($this->case_bg);
+        return $this->case_bg?Storage::disk('oss')->url($this->case_bg):'';
     }
     public function getBrief()
     {
-        return Storage::disk('oss')->url($this->brief);
+        return $this->brief ? Storage::disk('oss')->url($this->brief) : '';
     }
     public function getServiceItems()
     {
-        return Storage::disk('oss')->url($this->service_items);
+        return $this->service_items ? Storage::disk('oss')->url($this->service_items) : '';
     }
     public function getServiceSteps()
     {
-        return Storage::disk('oss')->url($this->service_steps);
+        return $this->service_steps ? Storage::disk('oss')->url($this->service_steps) : '';
     }
 
     

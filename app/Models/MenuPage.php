@@ -14,17 +14,17 @@ class MenuPage extends Model
     
     public function getBanner()
     {
-        return Storage::disk('oss')->url($this->banner);
+        return $this->banner ? Storage::disk('oss')->url($this->banner) : '';
     }
 
     public function getVideoCover()
     {
-        return Storage::disk('oss')->url($this->video_cover);
+        return $this->video_cover ? Storage::disk('oss')->url($this->video_cover) : '';
     }
 
     public function getImage()
     {
-        return Storage::disk('oss')->url($this->image);
+        return $this->image ? Storage::disk('oss')->url($this->image) : '';
     }
     
 }
