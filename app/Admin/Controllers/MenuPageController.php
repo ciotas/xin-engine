@@ -31,7 +31,7 @@ class MenuPageController extends AdminController
                     <source src='$this->video_url' type='video/mp4' />
                 </video>
                 </div>";
-            });;
+            });
             $grid->column('video_brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title('视频说明');
