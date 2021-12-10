@@ -34,7 +34,13 @@ class MenuPageController extends Controller
             'menu_page' => $menu_page,
             'themes' => $themes
         ];
-        return response()->json($data);
+        
+        return response()->json([
+            'code' => 200,
+            'msg' => 'success',
+            'data' => $data
+        ]);
+
     }
 
 }

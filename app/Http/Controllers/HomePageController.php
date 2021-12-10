@@ -19,7 +19,11 @@ class HomePageController extends Controller
             $home_page->case_bg = $home_page->getCaseBg();
         }
         
-        return response()->json($home_page);
+        return response()->json([
+            'code' => 200,
+            'msg' => 'success',
+            'data' => $home_page
+        ]);
         
     }
 }

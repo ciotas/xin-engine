@@ -24,7 +24,11 @@ class ModuleMenuController extends Controller
             });
         }
 
-        return $module_menu;
+        return response()->json([
+            'code' => 200,
+            'msg' => 'success',
+            'data' => $module_menu
+        ]);
 
     }
 }
