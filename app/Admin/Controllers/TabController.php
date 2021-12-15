@@ -119,7 +119,7 @@ class TabController extends AdminController
             ->chunkSize(1024)
             ->autoUpload();
             $form->text('prictice_video_duration');
-            $form->number('prictice_difficult')->rules('numeric|min:0|max:10')->help('总分10分，例如：4星半=9分');
+            $form->number('prictice_difficult')->rules('numeric|min:0|max:5')->help('总分5分，例如：1星=1分');
 
             $form->table('prictice_points', function ($table) {
                 $table->text('title', '要点');
