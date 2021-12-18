@@ -21,6 +21,7 @@ class ModuleMenuController extends Controller
             $module_menu->tabs->map(function($item, $key) {
                 $item->prictice_video_cover = $item->getPricticeVideoCover();
                 $item->cards = $item->getCards();
+                $item->features = array_merge([0=>['title'=> $item->title, 'desc' => $item->brief]], $item->features);
             });
         }
 
