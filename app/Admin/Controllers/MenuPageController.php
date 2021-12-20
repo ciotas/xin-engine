@@ -72,7 +72,13 @@ class MenuPageController extends AdminController
 
             $form->text('video_title');
 
-            $form->url('video_url');
+            // $form->url('video_url');
+            $form->file('video_url')->uniqueName()
+            ->move('videos')
+            ->accept('mp4,mov,ogg,avi', 'video/*')
+            ->chunkSize(1024 * 3)
+            ->maxSize(1024 * 100)
+            ->autoUpload();
 
             $form->image('video_cover')
             ->uniqueName()
