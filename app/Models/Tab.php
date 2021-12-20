@@ -22,6 +22,11 @@ class Tab extends Model
 		return $this->prictice_video_cover ? Storage::disk('oss')->url($this->prictice_video_cover) : ''; 
 	}
 
+	public function getPricticeVideoUrl()
+	{
+		return $this->prictice_video_url ? Storage::disk('oss')->url($this->prictice_video_url) : ''; 
+	}
+
 	public function getCards()
     {
         $data = [];

@@ -17,9 +17,11 @@ class ModuleMenuController extends Controller
             $module_menu->dot_img = $module_menu->getDotImg();
             $module_menu->tags_img = $module_menu->getTagsImg();
             $module_menu->video_cover = $module_menu->getVideoCover();
+            $module_menu->video_url = $module_menu->getVideoUrl();
     
             $module_menu->tabs->map(function($item, $key) {
                 $item->prictice_video_cover = $item->getPricticeVideoCover();
+                $item->prictice_video_url = $item->getPricticeVideoUrl();
                 $item->cards = $item->getCards();
                 $item->features = array_merge([0=>['title'=> $item->title, 'desc' => $item->brief]], $item->features);
             });

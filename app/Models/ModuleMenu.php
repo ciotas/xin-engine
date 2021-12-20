@@ -28,6 +28,7 @@ class ModuleMenu extends Model
     {
         return $this->cover ? Storage::disk('oss')->url($this->cover) : '';
     }
+    
     public function getBgImg()
     {
         return $this->bg_img ? Storage::disk('oss')->url($this->bg_img) : '';
@@ -50,11 +51,15 @@ class ModuleMenu extends Model
         
         return $data;
     }
+    
     public function getVideoCover()
     {
         return $this->video_cover ? Storage::disk('oss')->url($this->video_cover) : '';
     }
-    
-    
+
+    public function getVideoUrl()
+    {
+        return $this->video_url ? Storage::disk('oss')->url($this->video_url) : '';
+    }
     
 }

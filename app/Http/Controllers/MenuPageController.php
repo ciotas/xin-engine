@@ -14,6 +14,7 @@ class MenuPageController extends Controller
         if ($menu_page) {
             $menu_page->banner = $menu_page->getBanner();
             $menu_page->video_cover = $menu_page->getVideoCover();
+            $menu_page->video_url = $menu_page->getVideoUrl();
             $menu_page->image = $menu_page->getimage();
             // 主题
             $themes = Theme::with('module_menus')->get()
@@ -25,6 +26,8 @@ class MenuPageController extends Controller
                     $module_menu->dot_img = $module_menu->getDotImg();
                     $module_menu->tags_img = $module_menu->getTagsImg();
                     $module_menu->video_cover = $module_menu->getVideoCover();
+                    $module_menu->video_url = $module_menu->getVideoUrl();
+                    
                 }
                 return $item;
             });

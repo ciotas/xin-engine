@@ -76,9 +76,9 @@ class MenuPageController extends AdminController
             $form->file('video_url')
             ->uniqueName()
             ->move('videos')
-            // ->accept('mp4,mov,ogg,avi', 'video/*')
+            ->accept('mp4,mov,ogg,avi', 'video/*')
             ->maxSize(1024 * 100)
-            ->autoUpload();
+            ->autoUpload()->help('视频大小不超过100M，请等待上传成功提示出现后，再提交表单！');
 
             $form->image('video_cover')
             ->uniqueName()

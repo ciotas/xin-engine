@@ -111,7 +111,14 @@ class TabController extends AdminController
             // });
 
             $form->text('prictice_title')->rules('required');
-            $form->url('prictice_video_url');
+            // $form->url('prictice_video_url');
+            $form->file('prictice_video_url')
+            ->uniqueName()
+            ->move('videos')
+            ->accept('mp4,mov,ogg,avi', 'video/*')
+            ->maxSize(1024 * 100)
+            ->autoUpload()->help('视频大小不超过100M，请等待上传成功提示出现后，再提交表单！');
+
             $form->image('prictice_video_cover')
             ->uniqueName()
             ->move('images')

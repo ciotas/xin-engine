@@ -126,7 +126,14 @@ class ModuleMenuController extends AdminController
             ->sortable();
 
             $form->text('video_title');
-            $form->url('video_url');
+            // $form->url('video_url');
+            $form->file('video_url')
+            ->uniqueName()
+            ->move('videos')
+            ->accept('mp4,mov,ogg,avi', 'video/*')
+            ->maxSize(1024 * 100)
+            ->autoUpload()->help('视频大小不超过100M，请等待上传成功提示出现后，再提交表单！');
+
             $form->textarea('video_brief');
             $form->image('video_cover')
             ->uniqueName()
