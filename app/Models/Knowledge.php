@@ -13,8 +13,6 @@ class Knowledge extends Model
 	
 	public function tags(): BelongsToMany
 	{
-		// $pivotTable = 'knowledge_tag';
-		// return $this->belongsToMany(Tag::class, $pivotTable, 'knowledge_id', 'tag_id');
 		return $this->belongsToMany(Tag::class);
 	}
 }

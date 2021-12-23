@@ -30,18 +30,8 @@ class ThemeController extends AdminController
                 return "<div style='padding:10px 10px 0'>$this->brief</div>";
             });
             
-            $grid->column('module_menus', '大模块')->display('查看')
-            ->modal(function ($modal) {
-                // 设置弹窗标题
-                $modal->title($this->title.'下的大模块');
-                // 自定义图标
-                $modal->icon('feather icon-file-text');
-                $titles = ['ID', '名称'];
-                $module_menus = $this->module_menus->pluck('name', 'id');
-                $table = Table::make($titles, $module_menus);
-                return "<div style='padding:10px 10px 0'>$table</div>"; 
-            });
-
+            $grid->column('module_menus', '模块')->pluck('name')->label();
+        
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
