@@ -41,5 +41,10 @@ Route::group([
     $router->resource('tabs', 'TabController');
     // 主题
     $router->resource('themes', 'ThemeController');
+    // 标签
+    $router->resource('tags', 'TagController');
+    // 知识库
+    $router->resource('knowledge', 'KnowledgeController');
+    
     
 });
