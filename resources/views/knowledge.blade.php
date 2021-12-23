@@ -29,13 +29,13 @@
                     <div class="grid ">
                         <div class="p-6">
                             <div class="flex items-center">
-                                <div class="mt-2 text-lg text-center leading-7 font-semibold text-gray-900 dark:text-white">题目</div>
+                                <div class="mt-2 text-lg text-center leading-7 font-semibold text-gray-900 dark:text-white">{{$knowledge->title}}</div>
                             </div>
 
                             <div class="ml-6">
                                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-xs">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
+                                {{$knowledge->content}}
+                            </div>
                             </div>
                         </div>
 
