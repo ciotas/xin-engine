@@ -33,7 +33,9 @@ class KnowledgeController extends AdminController
                 $modal->icon('feather icon-file-text');
                 return "<div style='padding:10px 10px 0'>$this->content</div>";
             });
-            
+            $grid->column('link', '链接')->display(function() {
+                return route('knowledge.show',['knowledge_id'=> $this->id]);
+            });
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->where('搜索', function($query) {
