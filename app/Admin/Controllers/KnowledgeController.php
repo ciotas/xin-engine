@@ -9,6 +9,7 @@ use Dcat\Admin\Form\Tab;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
 use Dcat\Admin\Widgets\Table;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 use Dcat\Admin\Http\Controllers\AdminController;
 
@@ -36,6 +37,12 @@ class KnowledgeController extends AdminController
             $grid->column('link', '链接')->display(function() {
                 return route('knowledge.show',['knowledge_id'=> $this->id]);
             });
+
+            $grid->column('link_qrcode', '扫码查看')->display(function() {
+                $url = route('knowledge.show',['knowledge_id'=> $this->id]);
+                return QrCode::size(50)->generate($url);
+            });
+            
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->where('搜索', function($query) {
