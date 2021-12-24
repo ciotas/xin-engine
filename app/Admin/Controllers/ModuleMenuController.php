@@ -155,6 +155,7 @@ class ModuleMenuController extends AdminController
                 })->help('可选，请到栏目菜单先上传栏目内容');
         
             $form->disableViewCheck();
+            $form->disableViewButton();
 
         });
     }
