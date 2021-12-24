@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="ml-6">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-xs">
+                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-md">
                                 {!!$knowledge->content!!}
                             </div>
                             </div>
