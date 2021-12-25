@@ -32,21 +32,21 @@ class ModuleMenuController extends AdminController
                 return "<div style='padding:10px 10px 0'>$this->brief</div>";
             });
             $grid->column('cover')->image('', 60, 60);
-            $grid->column('bg_img')->image('', 60, 60);
+            $grid->column('bg_color');
             $grid->column('dot_img')->image('', 60, 60);
             $grid->column('tags_img')->image('', 30, 30);
             $grid->column('video_title');
-            $grid->column('video_url')->display('试看')->modal(function ($modal) {
-                // 设置弹窗标题
-                $modal->title('视频');
-                // 自定义图标
-                $modal->icon('feather icon-video');
-                return "<div style='padding:10px 10px 0;'>
-                <video width='720' controls='controls'>
-                    <source src='$this->video_url' type='video/mp4' />
-                </video>
-                </div>";
-            });
+            // $grid->column('video_url')->display('试看')->modal(function ($modal) {
+            //     // 设置弹窗标题
+            //     $modal->title('视频');
+            //     // 自定义图标
+            //     $modal->icon('feather icon-video');
+            //     return "<div style='padding:10px 10px 0;'>
+            //     <video width='720' controls='controls'>
+            //         <source src='$this->video_url' type='video/mp4' />
+            //     </video>
+            //     </div>";
+            // });
             $grid->column('video_brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title('说明');
@@ -103,12 +103,13 @@ class ModuleMenuController extends AdminController
             ->chunkSize(1024)
             ->autoUpload();
 
-            $form->image('bg_img')
-            ->uniqueName()
-            ->move('images')
-            ->accept('jpg,png,gif,jpeg', 'image/*')
-            ->chunkSize(1024)
-            ->autoUpload();
+            // $form->image('bg_img')
+            // ->uniqueName()
+            // ->move('images')
+            // ->accept('jpg,png,gif,jpeg', 'image/*')
+            // ->chunkSize(1024)
+            // ->autoUpload();
+            $form->color('bg_color');
 
             $form->image('dot_img')
             ->uniqueName()

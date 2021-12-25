@@ -45,6 +45,7 @@ Route::group([
     $router->resource('tags', 'TagController');
     // 知识库
     $router->resource('knowledge', 'KnowledgeController');
-    
+    // 设置
+    $router->resource('settings', 'SettingController');
     
 });

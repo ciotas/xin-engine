@@ -11,6 +11,7 @@ return [
         'questions'=> '解决问题',
         'cover' => '封面图',
         'bg_img' => '背景图',
+        'bg_color' => '背景颜色',
         'dot_img' => '圆配图',
         'tags_img' => '标签图',
         'video_title' => '视频标题',
