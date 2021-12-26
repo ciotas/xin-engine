@@ -51,7 +51,7 @@ class SettingController extends AdminController
     {
         return Form::make(new Setting(), function (Form $form) {
             $form->display('id');
-            
+            $form->text('share_title');
             $form->image('share_img')
             ->uniqueName()
             ->move('images')
