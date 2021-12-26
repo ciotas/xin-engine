@@ -47,6 +47,5 @@ Route::group([
     $router->resource('knowledge', 'KnowledgeController');
     // 设置
     $router->resource('settings', 'SettingController');
-    // 
     
 });

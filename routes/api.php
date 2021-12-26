@@ -30,7 +30,7 @@ Route::prefix('v1')
         Route::get('module-menu/{module_menu_id}', 'ModuleMenuController@index')->name('module-menu');
         // setting
         Route::get('setting', 'SettingController@index');
-        // 
-        
+        // 提交问题
+        Route::post('questions', 'QuestionController@postQuestion');
     });
 });
