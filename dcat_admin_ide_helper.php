@@ -88,6 +88,9 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection share_img
      * @property Grid\Column|Collection contact_img
      * @property Grid\Column|Collection tips
+     * @property Grid\Column|Collection huoban_logo
+     * @property Grid\Column|Collection huoban_title
+     * @property Grid\Column|Collection huoban_desc
      * @property Grid\Column|Collection link_id
      * @property Grid\Column|Collection features
      * @property Grid\Column|Collection prictice_title
@@ -178,6 +181,9 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection share_img(string $label = null)
      * @method Grid\Column|Collection contact_img(string $label = null)
      * @method Grid\Column|Collection tips(string $label = null)
+     * @method Grid\Column|Collection huoban_logo(string $label = null)
+     * @method Grid\Column|Collection huoban_title(string $label = null)
+     * @method Grid\Column|Collection huoban_desc(string $label = null)
      * @method Grid\Column|Collection link_id(string $label = null)
      * @method Grid\Column|Collection features(string $label = null)
      * @method Grid\Column|Collection prictice_title(string $label = null)
@@ -273,6 +279,9 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection share_img
      * @property Show\Field|Collection contact_img
      * @property Show\Field|Collection tips
+     * @property Show\Field|Collection huoban_logo
+     * @property Show\Field|Collection huoban_title
+     * @property Show\Field|Collection huoban_desc
      * @property Show\Field|Collection link_id
      * @property Show\Field|Collection features
      * @property Show\Field|Collection prictice_title
@@ -363,6 +372,9 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection share_img(string $label = null)
      * @method Show\Field|Collection contact_img(string $label = null)
      * @method Show\Field|Collection tips(string $label = null)
+     * @method Show\Field|Collection huoban_logo(string $label = null)
+     * @method Show\Field|Collection huoban_title(string $label = null)
+     * @method Show\Field|Collection huoban_desc(string $label = null)
      * @method Show\Field|Collection link_id(string $label = null)
      * @method Show\Field|Collection features(string $label = null)
      * @method Show\Field|Collection prictice_title(string $label = null)
