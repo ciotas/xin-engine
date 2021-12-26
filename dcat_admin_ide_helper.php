@@ -72,6 +72,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection en_name
      * @property Grid\Column|Collection cover
      * @property Grid\Column|Collection bg_img
+     * @property Grid\Column|Collection bg_color
      * @property Grid\Column|Collection dot_img
      * @property Grid\Column|Collection tags_img
      * @property Grid\Column|Collection questions
@@ -82,6 +83,11 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection tokenable_id
      * @property Grid\Column|Collection abilities
      * @property Grid\Column|Collection last_used_at
+     * @property Grid\Column|Collection desc
+     * @property Grid\Column|Collection tags
+     * @property Grid\Column|Collection share_img
+     * @property Grid\Column|Collection contact_img
+     * @property Grid\Column|Collection tips
      * @property Grid\Column|Collection link_id
      * @property Grid\Column|Collection features
      * @property Grid\Column|Collection prictice_title
@@ -156,6 +162,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection en_name(string $label = null)
      * @method Grid\Column|Collection cover(string $label = null)
      * @method Grid\Column|Collection bg_img(string $label = null)
+     * @method Grid\Column|Collection bg_color(string $label = null)
      * @method Grid\Column|Collection dot_img(string $label = null)
      * @method Grid\Column|Collection tags_img(string $label = null)
      * @method Grid\Column|Collection questions(string $label = null)
@@ -166,6 +173,11 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection tokenable_id(string $label = null)
      * @method Grid\Column|Collection abilities(string $label = null)
      * @method Grid\Column|Collection last_used_at(string $label = null)
+     * @method Grid\Column|Collection desc(string $label = null)
+     * @method Grid\Column|Collection tags(string $label = null)
+     * @method Grid\Column|Collection share_img(string $label = null)
+     * @method Grid\Column|Collection contact_img(string $label = null)
+     * @method Grid\Column|Collection tips(string $label = null)
      * @method Grid\Column|Collection link_id(string $label = null)
      * @method Grid\Column|Collection features(string $label = null)
      * @method Grid\Column|Collection prictice_title(string $label = null)
@@ -245,6 +257,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection en_name
      * @property Show\Field|Collection cover
      * @property Show\Field|Collection bg_img
+     * @property Show\Field|Collection bg_color
      * @property Show\Field|Collection dot_img
      * @property Show\Field|Collection tags_img
      * @property Show\Field|Collection questions
@@ -255,6 +268,11 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection tokenable_id
      * @property Show\Field|Collection abilities
      * @property Show\Field|Collection last_used_at
+     * @property Show\Field|Collection desc
+     * @property Show\Field|Collection tags
+     * @property Show\Field|Collection share_img
+     * @property Show\Field|Collection contact_img
+     * @property Show\Field|Collection tips
      * @property Show\Field|Collection link_id
      * @property Show\Field|Collection features
      * @property Show\Field|Collection prictice_title
@@ -329,6 +347,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection en_name(string $label = null)
      * @method Show\Field|Collection cover(string $label = null)
      * @method Show\Field|Collection bg_img(string $label = null)
+     * @method Show\Field|Collection bg_color(string $label = null)
      * @method Show\Field|Collection dot_img(string $label = null)
      * @method Show\Field|Collection tags_img(string $label = null)
      * @method Show\Field|Collection questions(string $label = null)
@@ -339,6 +358,11 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection tokenable_id(string $label = null)
      * @method Show\Field|Collection abilities(string $label = null)
      * @method Show\Field|Collection last_used_at(string $label = null)
+     * @method Show\Field|Collection desc(string $label = null)
+     * @method Show\Field|Collection tags(string $label = null)
+     * @method Show\Field|Collection share_img(string $label = null)
+     * @method Show\Field|Collection contact_img(string $label = null)
+     * @method Show\Field|Collection tips(string $label = null)
      * @method Show\Field|Collection link_id(string $label = null)
      * @method Show\Field|Collection features(string $label = null)
      * @method Show\Field|Collection prictice_title(string $label = null)

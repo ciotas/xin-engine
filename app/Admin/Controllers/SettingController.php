@@ -56,6 +56,8 @@ class SettingController extends AdminController
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
             ->autoUpload();
+
+            $form->text('tips');
             
             $form->disableViewButton();
             $form->disableViewCheck();
