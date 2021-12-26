@@ -109,7 +109,7 @@ class ModuleMenuController extends AdminController
             // ->accept('jpg,png,gif,jpeg', 'image/*')
             // ->chunkSize(1024)
             // ->autoUpload();
-            $form->color('bg_color');
+            $form->text('bg_color');
 
             $form->image('dot_img')
             ->uniqueName()
