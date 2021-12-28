@@ -31,7 +31,7 @@ Route::prefix('v1')
         // setting
         Route::get('setting', 'SettingController@index');
         // 提交问题
-        Route::post('questions', 'QuestionController@postQuestion');
+        Route::post('question', 'QuestionController@postQuestion');
         // 问题标签
         Route::get('qtags', 'QTagController@index');
     });
