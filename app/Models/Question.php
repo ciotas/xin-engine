@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-	use HasDateTimeFormatter;    }
+	use HasDateTimeFormatter;    
+	protected $fillable = ['title', 'tags'];
+}
