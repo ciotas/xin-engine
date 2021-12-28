@@ -12,7 +12,7 @@ Route::group([
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
 
-    $router->get('/', 'HomeController@index');
+    $router->get('/', 'HomeController@index')->name('admin');
     // 老师
     $router->resource('users', 'UserController');
     // 模块
