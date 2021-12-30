@@ -23,7 +23,9 @@ class ModuleMenuController extends Controller
                 $item->prictice_video_cover = $item->getPricticeVideoCover();
                 $item->prictice_video_url = $item->getPricticeVideoUrl();
                 $item->cards = $item->getCards();
-                $item->features = array_merge([0=>['title'=> $item->title, 'desc' => $item->brief]], $item->features);
+                if ($item->features) {
+                    $item->features = array_merge([0=>['title'=> $item->title, 'desc' => $item->brief]], $item->features);
+                }
             });
         }
 
