@@ -14,10 +14,9 @@ class WeChatController extends Controller
         // $work = \EasyWeChat::work();
         $app = app('wechat.work');
 
-        Log::info(json_encode($app));
-        // $work->server->push(function($message){
-        //     return "欢迎关注 overtrue！";
-        // });
+        $app->server->push(function($message){
+            return "欢迎关注 overtrue！";
+        });
 
         return $app->server->serve();
     }
