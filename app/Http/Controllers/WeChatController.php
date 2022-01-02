@@ -14,11 +14,11 @@ class WeChatController extends Controller
         // $work = \EasyWeChat::work();
         $app = app('wechat.work');
 
-        $app->server->push(function($message){
-            return "欢迎关注 overtrue！";
-        });
+        // $app->server->push(function($message){
+        //     return "欢迎关注 overtrue！";
+        // });
 
         Log::info($app->server->serve());
-        return $app->server->serve();
+        return $app->server->serve() ? true : false;
     }
 }
