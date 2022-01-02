@@ -9,7 +9,7 @@ class WeChatController extends Controller
 {
     public function serve(Request $request)
     {
-        Log::info('request arrived.');
+        Log::info($request->all());
 
         // $work = \EasyWeChat::work();
         $app = app('wechat.work');
@@ -21,7 +21,7 @@ class WeChatController extends Controller
         // Log::info($app->server->serve());
         // return $app->server->serve() ? true : false;
         if ($app->server->serve()) {
-            $echostr = urldecode($request->echostr);
+            $echostr = base64_decode($request->echostr);
             Log::info($echostr);
             return $echostr;
         }
