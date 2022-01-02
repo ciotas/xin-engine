@@ -18,12 +18,8 @@ class WeChatController extends Controller
         //     return "欢迎关注 overtrue！";
         // });
 
-        // Log::info($app->server->serve());
-        // return $app->server->serve() ? true : false;
-        if ($app->server->serve()) {
-            $echostr = base64_decode($request->echostr);
-            Log::info($echostr);
-            return $echostr;
-        }
+        Log::info($app->server->serve());
+        return $app->server->serve();
+        
     }
 }
