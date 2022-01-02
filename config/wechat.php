@@ -139,8 +139,9 @@ return [
         'default' => [
             'corp_id' => env('WECHAT_WORK_ID'),
             'agent_id' => env('WECHAT_WORK_AGENT_ID'),
-            'secret'   => env('WECHAT_WORK_AGENT_CONTACTS_SECRET'),
-             //...
+            'secret'   => env('WECHAT_WORK_SECRET'),
+            'token' => env('WECHAT_WORK_TOKEN'),
+            'aes_key' => env('WECHAT_WORK_AESKEY'),
          ],
     ],
 ];
