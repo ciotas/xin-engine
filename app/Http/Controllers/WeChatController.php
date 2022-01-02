@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Log;
 
 class WeChatController extends Controller
 {
-    public function serve()
+    public function serve(Request $request)
     {
         Log::info('request arrived.');
 
@@ -18,7 +18,12 @@ class WeChatController extends Controller
         //     return "欢迎关注 overtrue！";
         // });
 
-        Log::info($app->server->serve());
-        return $app->server->serve() ? true : false;
+        // Log::info($app->server->serve());
+        // return $app->server->serve() ? true : false;
+        if ($app->server->serve()) {
+            $echostr = urldecode($request->echostr);
+            Log::info($echostr);
+            return $echostr;
+        }
     }
 }
