@@ -34,7 +34,6 @@ Route::prefix('v1')
         Route::post('question', 'QuestionController@postQuestion');
         // 问题标签
         Route::get('qtags', 'QTagController@index');
-        // 微信客服回调url
-        Route::any('wechat', 'WeChatController@serve');
+        
     });
 });

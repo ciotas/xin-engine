@@ -16,4 +16,6 @@ Route::get('/', function() {
     return redirect()->route('dcat.admin.admin');
 });
 Route::get('/knowledge/{knowledge_id}', 'KnowledgeController@show')->name('knowledge.show');
+// 微信客服回调url
+Route::any('wechat', 'WeChatController@serve');
 
