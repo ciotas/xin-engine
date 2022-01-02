@@ -138,7 +138,7 @@ return [
     'work' => [
         'default' => [
             'corp_id' => 'ww897383e19bdb60ed',
-            'agent_id' => 100020,
+            'agent_id' => 1000002,
             'secret'   => env('WECHAT_WORK_AGENT_CONTACTS_SECRET', ''),
              //...
          ],

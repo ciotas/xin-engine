@@ -23,9 +23,4 @@ class SettingController extends Controller
             'data' => $setting
         ]);
     }
-
-    public function wechat_kf_callback(Request $request)
-    {
-        Log::info($request->all());
-    }
 }

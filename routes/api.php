@@ -35,6 +35,6 @@ Route::prefix('v1')
         // 问题标签
         Route::get('qtags', 'QTagController@index');
         // 微信客服回调url
-        Route::any('wechat/kf/callback', 'SettingController@wechat_kf_callback');
+        Route::any('wechat', 'WeChatController@serve');
     });
 });
