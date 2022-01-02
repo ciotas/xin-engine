@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SettingController extends Controller
 {
@@ -21,5 +22,10 @@ class SettingController extends Controller
             'msg' => 'success',
             'data' => $setting
         ]);
+    }
+
+    public function wechat_kf_callback(Request $request)
+    {
+        Log::info($request->all());
     }
 }
