@@ -11,12 +11,14 @@ class WeChatController extends Controller
     {
         Log::info('request arrived.');
 
-        $work = \EasyWeChat::work();
-        Log::info(json_encode($work));
+        // $work = \EasyWeChat::work();
+        $app = app('wechat.work');
+
+        Log::info(json_encode($app));
         // $work->server->push(function($message){
         //     return "欢迎关注 overtrue！";
         // });
 
-        return $work->server->serve();
+        return $app->server->serve();
     }
 }
