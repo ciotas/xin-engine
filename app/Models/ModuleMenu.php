@@ -21,7 +21,7 @@ class ModuleMenu extends Model
     public function tabs(): BelongsToMany
 	{
 		$pivotTable = 'module_menu_tab';
-		return $this->belongsToMany(Tab::class, $pivotTable, 'module_menu_id', 'tab_id');
+		return $this->belongsToMany(Tab::class, $pivotTable, 'module_menu_id', 'tab_id')->withPivot('order')->orderByPivot('order');
 	}
 
     public function getCover()
@@ -59,7 +59,12 @@ class ModuleMenu extends Model
 
     public function getVideoUrl()
     {
-        return $this->video_url ? Storage::disk('oss')->url($this->video_url) : '';
+        if ($this->video_url) {
+            if (!str_contains($this->video_url, 'http')) {
+                return $this->video_url;
+            }
+        }
+        return $this->video_url;
     }
     
 }

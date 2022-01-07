@@ -23,11 +23,11 @@ class ModuleMenuTabController extends AdminController
         return Grid::make(new ModuleMenuTab(), function (Grid $grid) {
             $grid->model()->orderBy('order');
             $grid->column('id')->sortable();
-            $grid->column('module_menu_id')->display(function($val) {
-                return ModuleMenu::find($val)->name;
-            });
             $grid->column('tab_id')->display(function($val) {
                 return Tab::find($val)->name;
+            });
+            $grid->column('module_menu_id')->display(function($val) {
+                return ModuleMenu::find($val)->name;
             });
             $grid->column('order')->orderable();
             $grid->filter(function (Grid\Filter $filter) {
