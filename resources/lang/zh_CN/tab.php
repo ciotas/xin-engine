@@ -7,6 +7,7 @@ return [
     'fields' => [
         'module_menu_id' => '大模块',
         'name' => '栏目名称',
+        'order'=> '排序',
         'title' => '栏目主题',
         'brief' => '描述',
         'features' => '栏目特点',

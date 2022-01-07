@@ -3,7 +3,6 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\Tab;
-use App\Models\ModuleMenu;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Http\Controllers\AdminController;
@@ -20,9 +19,10 @@ class TabController extends AdminController
     protected function grid()
     {
         return Grid::make(new Tab(), function (Grid $grid) {
+            $grid->model()->orderBy('order');
             $grid->column('id')->sortable();
-            $grid->column('name');
-            $grid->column('brief');
+            $grid->column('name')->editable();
+            // $grid->order->orderable();
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title('介绍');
@@ -48,17 +48,17 @@ class TabController extends AdminController
                 return "<div style='padding:10px 10px 0'>$table</div>";
             });
             $grid->column('prictice_title');
-            $grid->column('prictice_video_url')->display('试看')->modal(function ($modal) {
-                // 设置弹窗标题
-                $modal->title('实操视频');
-                // 自定义图标
-                $modal->icon('feather icon-video');
-                return "<div style='padding:10px 10px 0;'>
-                <video width='720' controls='controls'>
-                    <source src='$this->prictice_video_url' type='video/mp4' />
-                </video>
-                </div>";
-            });
+            // $grid->column('prictice_video_url')->display('试看')->modal(function ($modal) {
+            //     // 设置弹窗标题
+            //     $modal->title('实操视频');
+            //     // 自定义图标
+            //     $modal->icon('feather icon-video');
+            //     return "<div style='padding:10px 10px 0;'>
+            //     <video width='720' controls='controls'>
+            //         <source src='$this->prictice_video_url' type='video/mp4' />
+            //     </video>
+            //     </div>";
+            // });
             $grid->column('prictice_difficult');
             $grid->column('prictice_points')->display('查看')
             ->modal(function ($modal) {

@@ -31,6 +31,8 @@ Route::group([
     $router->get('api/cubes', 'ApiController@cubes');
     // api links
     $router->get('api/links', 'ApiController@links');
+    // api links
+    $router->get('api/tabs', 'ApiController@tabs');
     // 首页
     $router->resource('home_pages', 'HomePageController');
     // 模块页
@@ -49,4 +51,6 @@ Route::group([
     $router->resource('settings', 'SettingController');
     // 问题标签
     $router->resource('qtags', 'QTagController');
+    // 模块下的tabs
+    $router->resource('module_menu_tabs', 'ModuleMenuTabController');
 });

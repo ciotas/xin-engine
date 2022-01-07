@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Forms\TabList;
+use App\Admin\Renderable\TabTable;
 use App\Admin\Repositories\ModuleMenu;
 use App\Models\Tab;
 use Dcat\Admin\Form;
@@ -145,8 +146,22 @@ class ModuleMenuController extends AdminController
 
             $form->text('videos_duration');
             $form->divider();
+
+            // $form->multipleSelectTable('tabs', '栏目Tab')
+            // ->title('栏目Tabs选择')
+            // ->dialogWidth('50%') // 弹窗宽度，默认 800px
+            // ->from(TabTable::make(['id' => $form->getKey()])) // 设置渲染类实例，并传递自定义参数
+            // ->model(Tab::class, 'id', 'name')
+            // ->customFormat(function ($v) {
+            //     if (! $v) {
+            //         return [];
+            //     }
+            //     // 从数据库中查出的二维数组中转化成ID
+            //     return array_column($v, 'id');
+            // }); // 设置编辑数据显示
+
             $form->multipleSelect('tabs', '栏目Tab')
-                ->options(Tab::all()->pluck('name', 'id'))
+                ->options(Tab::orderBy('id', 'desc')->get()->pluck('name', 'id'))
                 ->customFormat(function ($v) {
                     if (! $v) {
                         return [];

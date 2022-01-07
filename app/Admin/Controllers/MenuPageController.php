@@ -21,17 +21,17 @@ class MenuPageController extends AdminController
             $grid->column('id')->sortable();
             $grid->column('banner')->image('', 60, 60);
             $grid->column('video_title');
-            $grid->column('video_url')->display('试看')->modal(function ($modal) {
-                // 设置弹窗标题
-                $modal->title($this->video_title);
-                // 自定义图标
-                $modal->icon('feather icon-video');
-                return "<div style='padding:10px 10px 0;'>
-                <video width='720' controls='controls'>
-                    <source src='$this->video_url' type='video/mp4' />
-                </video>
-                </div>";
-            });
+            // $grid->column('video_url')->display('试看')->modal(function ($modal) {
+            //     // 设置弹窗标题
+            //     $modal->title($this->video_title);
+            //     // 自定义图标
+            //     $modal->icon('feather icon-video');
+            //     return "<div style='padding:10px 10px 0;'>
+            //     <video width='720' controls='controls'>
+            //         <source src='$this->video_url' type='video/mp4' />
+            //     </video>
+            //     </div>";
+            // });
             $grid->column('video_brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title('视频说明');

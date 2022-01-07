@@ -34,14 +34,19 @@ class KnowledgeController extends AdminController
                 $modal->icon('feather icon-file-text');
                 return "<div style='padding:10px 10px 0'>$this->content</div>";
             });
-            $grid->column('link', '链接')->display(function() {
+            $grid->column('link', '链接')
+            ->display(function() {
                 return route('knowledge.show',['knowledge_id'=> $this->id]);
-            });
+            })->copyable();
 
-            $grid->column('link_qrcode', '扫码查看')->display(function() {
-                $url = route('knowledge.show',['knowledge_id'=> $this->id]);
-                return QrCode::size(50)->generate($url);
-            });
+            // $grid->column('link_qrcode', '扫码查看')->display(function() {
+            //     $url = route('knowledge.show',['knowledge_id'=> $this->id]);
+            //     return QrCode::size(50)->generate($url);
+            // });
+
+            $grid->column('link_qrcode', '扫码查看')->qrcode(function () {
+                return $this->link_qrcode;
+            }, 100, 100);
             
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
