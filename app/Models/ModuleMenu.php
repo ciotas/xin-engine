@@ -61,7 +61,7 @@ class ModuleMenu extends Model
     {
         if ($this->video_url) {
             if (!str_contains($this->video_url, 'http')) {
-                return $this->video_url;
+                return  Storage::disk('oss')->url($this->video_url);
             }
         }
         return $this->video_url;
