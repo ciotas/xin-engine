@@ -25,14 +25,7 @@ class KnowledgeController extends AdminController
     protected function grid()
     {
         return Grid::make(new Knowledge(), function (Grid $grid) {
-            // $grid->quickSearch('tags.name')->placeholder('搜索标签');
-            // $query_str = Request::query();
-            // $search = null;
-            // if (isset($query_str['_search_'])) {
-            //     $search = $query_str['_search_'];
-            // }
-            $grid->quickSearch(function ($model, $query) {
-            });
+            $grid->quickSearch(function ($model, $query) {});
             $grid->column('id')->sortable();
             $grid->column('title');
             $grid->column('tags')->pluck('name')->label();
@@ -60,19 +53,7 @@ class KnowledgeController extends AdminController
             
             $grid->disableViewButton();
             $grid->disableFilter();
-            
-            // $grid->filter(function (Grid\Filter $filter) {
-            //     $filter->panel();
-            //     $filter->where('标签', function($query) {
-            //         $query->whereHas('tags', function($query) {
-            //             $query->where('name', 'like', "%{$this->input}%");
-            //         })
-            //         ->orWhere('title', 'like', "%{$this->input}%")
-            //         ->orWhere('content', 'like', "%{$this->input}%");
-            //     })->width(4);
-                
-        
-            // });
+ 
         });
     }
 
@@ -86,14 +67,12 @@ class KnowledgeController extends AdminController
         return Form::make(Knowledge::with('tags'), function (Form $form) {
             $form->display('id');
             $form->text('title');
-            
             $form->multipleSelect('tags', '标签')
             ->options(Tag::all()->pluck('name', 'id'))
             ->customFormat(function ($v) {
                 if (! $v) {
                     return [];
                 }
-    
                 // 从数据库中查出的二维数组中转化成ID
                 return array_column($v, 'id');
             });

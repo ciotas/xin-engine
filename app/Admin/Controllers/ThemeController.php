@@ -58,7 +58,6 @@ class ThemeController extends AdminController
                 if (! $v) {
                     return [];
                 }
-    
                 // 从数据库中查出的二维数组中转化成ID
                 return array_column($v, 'id');
             });
