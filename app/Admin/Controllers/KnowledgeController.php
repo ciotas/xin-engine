@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\Knowledge;
+use App\Models\Knowledge as ModelsKnowledge;
 use App\Models\Tag;
 use Dcat\Admin\Form;
 use Dcat\Admin\Form\Tab;
@@ -12,6 +13,7 @@ use Dcat\Admin\Widgets\Table;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 use Dcat\Admin\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Request;
 
 class KnowledgeController extends AdminController
 {
@@ -23,6 +25,14 @@ class KnowledgeController extends AdminController
     protected function grid()
     {
         return Grid::make(new Knowledge(), function (Grid $grid) {
+            // $grid->quickSearch('tags.name')->placeholder('搜索标签');
+            // $query_str = Request::query();
+            // $search = null;
+            // if (isset($query_str['_search_'])) {
+            //     $search = $query_str['_search_'];
+            // }
+            $grid->quickSearch(function ($model, $query) {
+            });
             $grid->column('id')->sortable();
             $grid->column('title');
             $grid->column('tags')->pluck('name')->label();
@@ -49,16 +59,20 @@ class KnowledgeController extends AdminController
             }, 100, 100);
             
             $grid->disableViewButton();
-            $grid->filter(function (Grid\Filter $filter) {
-                $filter->where('搜索', function($query) {
-                    $query->whereHas('tags', function($query) {
-                        $query->where('name', 'like', "%{$this->input}%");
-                    })
-                    ->orWhere('title', 'like', "%{$this->input}%")
-                    ->orWhere('content', 'like', "%{$this->input}%");
-                });
+            $grid->disableFilter();
+            
+            // $grid->filter(function (Grid\Filter $filter) {
+            //     $filter->panel();
+            //     $filter->where('标签', function($query) {
+            //         $query->whereHas('tags', function($query) {
+            //             $query->where('name', 'like', "%{$this->input}%");
+            //         })
+            //         ->orWhere('title', 'like', "%{$this->input}%")
+            //         ->orWhere('content', 'like', "%{$this->input}%");
+            //     })->width(4);
+                
         
-            });
+            // });
         });
     }
 
