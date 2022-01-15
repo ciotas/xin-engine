@@ -24,7 +24,28 @@ class WeChatController extends Controller
 
         Log::info($app->server->serve());
         return $app->server->serve();
-        
+
+    }
+
+    public function server()
+    {
+        $app = app('wechat.official_account');
+        $app->server->push(function($message){
+            return "欢迎关注 overtrue！";
+        });
+
+        return $app->server->serve();
+    }
+
+    public function jssdkconfig(Request $request)
+    {
+        $arr = explode(',', $request->jsapis);
+        $url = $request->url; // 当前网页的URL，不包含#及其后面部分
+        $app = app('wechat.official_account');
+//        $app = \EasyWeChat::payment();
+        $app->jssdk->setUrl($url);
+        $config = $app->jssdk->buildConfig($arr, false);
+        return response($config);
     }
 
     public function minProgramSocialStore(Request $request)
