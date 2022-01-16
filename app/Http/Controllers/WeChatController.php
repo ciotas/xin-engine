@@ -66,16 +66,15 @@ class WeChatController extends Controller
             
             $userInfo = $miniProgram->encryptor->decryptData($session_key, $iv, $encryptedData);
             Log::info(json_encode($userInfo));
-            return response()->json($userInfo);
             if ($userInfo) {
                 // 查找是否注册
                 $mobile = $userInfo['purePhoneNumber'];
                 $user = User::where('mobile', $mobile)->first();
                 if (!$user) {
-                    // return $this->storeUser($mobile, null , null, $session['openid']);
                     $user = User::create([
                         'mobile' => $mobile,
-                        'name' => ''
+                        'name' => '',
+                        'weapp_openid' => $session['openid']
                     ]);
                     $token = $user->createToken('xteam-engine')->plainTextToken;
                     $response = [
@@ -90,7 +89,7 @@ class WeChatController extends Controller
 
                 } else {
                     // 用户已注册, 直接登陆
-                    $user->open_id = $session['openid'];
+                    $user->weapp_openid = $session['openid'];
                     $user->save();
                     $token = $user->createToken('xteam-engine')->plainTextToken;
                     $response = [
