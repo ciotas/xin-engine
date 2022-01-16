@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Api\WeappAuthorizationRequest;
 use App\Models\User;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -50,7 +52,11 @@ class WeChatController extends Controller
 
     public function minProgramSocialStore(Request $request)
     {
-        Log::info('--------start minProgramSocialStore--------');
+        $miniProgram = \EasyWeChat::miniProgram();
+        $res = $miniProgram->PhoneNumber->getUserPhoneNumber($request->code);
+        return Log::info(json_encode($res));
+
+
         try {
             $iv = $request->iv;
             $encryptedData = $request->encryptedData;
@@ -58,6 +64,7 @@ class WeChatController extends Controller
             $session   = $miniProgram->auth->session($request->code);
             Log::info(json_encode($session));
             $session_key = $session['session_key'];
+            
             $userInfo = $miniProgram->encryptor->decryptData($session_key, $iv, $encryptedData);
             Log::info(json_encode($userInfo));
             if ($userInfo) {
