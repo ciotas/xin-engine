@@ -44,10 +44,14 @@ class WeChatController extends Controller
         $arr = explode(',', $request->jsapis);
         $url = $request->url; // 当前网页的URL，不包含#及其后面部分
         $app = app('wechat.official_account');
-//        $app = \EasyWeChat::payment();
         $app->jssdk->setUrl($url);
         $config = $app->jssdk->buildConfig($arr, false);
         return response($config);
+    }
+
+    public function isLogin(Request $request)
+    {
+        return response()->json([]);
     }
 
     public function minProgramSocialStore(Request $request)

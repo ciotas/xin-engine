@@ -31,8 +31,10 @@ Route::prefix('v1')
         // setting
         Route::get('setting', 'SettingController@index');
         Route::group(['middleware' => ['auth:sanctum']], function() {
-            
+            // 判断是否登录
+            Route::get('islogin', 'WechatController@isLogin');
         });
+       
         // 提交问题
         Route::post('question', 'QuestionController@postQuestion');
         // 问题标签
@@ -42,6 +44,7 @@ Route::prefix('v1')
             // 微信授权登陆
             // Route::any('socials/authorizations', 'AuthorizationsController@socialStore');
         });
+        
         // jssdk
         Route::get('jssdk/config', 'WechatController@jssdkconfig');
         // 小程序授权登陆
