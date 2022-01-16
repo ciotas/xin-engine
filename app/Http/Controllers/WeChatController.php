@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -65,27 +65,37 @@ class WeChatController extends Controller
                 $mobile = $userInfo['purePhoneNumber'];
                 $user = User::where('mobile', $mobile)->first();
                 if (!$user) {
-                    return $this->storeUser($mobile, null , null, $session['openid']);
+                    // return $this->storeUser($mobile, null , null, $session['openid']);
+                    $user = User::create([
+                        'mobile' => $mobile,
+                        'name' => ''
+                    ]);
+                    $token = $user->createToken('xteam-engine')->plainTextToken;
+                    $response = [
+                        'code' => '200',
+                        'msg'=> 'success',
+                        'data' => [
+                            'user' => $user,
+                            'token' => $token
+                        ]
+                    ];
+                    return response($response, 201);
+
                 } else {
                     // 用户已注册, 直接登陆
                     $user->open_id = $session['openid'];
                     $user->save();
-                    try {
-                        $response = $this->getPassportToken($user)->getOriginalContent();
-                        $res = json_decode((string) $response);
-                        return response()->json([
-                            'code' => 1000,
-                            'user_id' => $user->id,
-                            'openid' => $user->open_id,
-                            'token_type' => $res->token_type,
-                            'expires_in' => $res->expires_in,
-                            'access_token' => $res->access_token,
-                            'refresh_token' => $res->refresh_token,
-                        ]);
-                    } catch(Exception $e) {
-                        Log::error('验证验证码，获取token错误：'.$e->getMessage());
-                        throw new Exception($e->getMessage());
-                    }
+                    $token = $user->createToken('xteam-engine')->plainTextToken;
+                    $response = [
+                        'code' => '200',
+                        'msg'=> 'success',
+                        'data' => [
+                            'user' => $user,
+                            'token' => $token
+                        ]
+                    ];
+                    return response($response, 201);
+
                 }
             }
         } catch (\Exception $e) {

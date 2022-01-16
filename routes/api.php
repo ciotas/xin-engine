@@ -30,6 +30,9 @@ Route::prefix('v1')
         Route::get('module-menu/{module_menu_id}', 'ModuleMenuController@index')->name('module-menu');
         // setting
         Route::get('setting', 'SettingController@index');
+        Route::group(['middleware' => ['auth:sanctum']], function() {
+
+        })
         // 提交问题
         Route::post('question', 'QuestionController@postQuestion');
         // 问题标签
@@ -39,7 +42,7 @@ Route::prefix('v1')
             // 微信授权登陆
             // Route::any('socials/authorizations', 'AuthorizationsController@socialStore');
         });
-        // 
+        // jssdk
         Route::get('jssdk/config', 'WechatController@jssdkconfig');
         // 小程序授权登陆
         Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
