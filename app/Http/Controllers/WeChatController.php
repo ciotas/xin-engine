@@ -51,7 +51,10 @@ class WeChatController extends Controller
 
     public function isLogin(Request $request)
     {
-        return 'success';
+        return response()->json([
+            'code'=> 200,
+            'msg' => 'success'
+        ]);
     }
 
     public function minProgramSocialStore(Request $request)
