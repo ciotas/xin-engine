@@ -78,7 +78,7 @@ class WeChatController extends Controller
                     ]);
                     $token = $user->createToken('xteam-engine')->plainTextToken;
                     $response = [
-                        'code' => '200',
+                        'code' => 200,
                         'msg'=> 'success',
                         'data' => [
                             'user' => $user,
@@ -93,7 +93,7 @@ class WeChatController extends Controller
                     $user->save();
                     $token = $user->createToken('xteam-engine')->plainTextToken;
                     $response = [
-                        'code' => '200',
+                        'code' => 200,
                         'msg'=> 'success',
                         'data' => [
                             'user' => $user,
