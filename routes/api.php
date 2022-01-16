@@ -31,12 +31,12 @@ Route::prefix('v1')
         // setting
         Route::get('setting', 'SettingController@index');
         Route::group(['middleware' => ['auth:sanctum']], function() {
-
-        })
-        // 提交问题
-        Route::post('question', 'QuestionController@postQuestion');
-        // 问题标签
-        Route::get('qtags', 'QTagController@index');
+            // 提交问题
+            Route::post('question', 'QuestionController@postQuestion');
+            // 问题标签
+            Route::get('qtags', 'QTagController@index');
+        });
+        
         // 微信授权登陆
         Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
             // 微信授权登陆
