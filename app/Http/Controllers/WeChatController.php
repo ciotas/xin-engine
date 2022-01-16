@@ -54,7 +54,8 @@ class WeChatController extends Controller
     {
         $miniProgram = \EasyWeChat::miniProgram();
         $res = $miniProgram->PhoneNumber->getUserPhoneNumber($request->code);
-        return Log::info(json_encode($res));
+        Log::info(json_encode($res));
+        return response()->json($res);
 
 
         try {
