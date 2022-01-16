@@ -51,7 +51,7 @@ class WeChatController extends Controller
 
     public function isLogin(Request $request)
     {
-        return response()->json([]);
+        return 'success';
     }
 
     public function minProgramSocialStore(Request $request)

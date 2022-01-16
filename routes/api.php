@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')
 ->name('api.v1.')
 ->group(function() {
-    Route::middleware('auth:sanctum')->group(function() {
+    Route::group(['middleware'=> 'auth:sanctum'], function() {
         // 登录可以访问
         // 判断是否登录
-        Route::get('islogin', 'WechatController@isLogin');
+        Route::get('islogin', 'WeChatController@isLogin');
     });
     Route::group([], function() {
         // 游客可以访问
