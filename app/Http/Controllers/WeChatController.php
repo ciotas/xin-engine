@@ -52,12 +52,10 @@ class WeChatController extends Controller
 
     public function minProgramSocialStore(Request $request)
     {
-        $miniProgram = \EasyWeChat::miniProgram();
-        $res = $miniProgram->PhoneNumber->getUserPhoneNumber($request->code);
-        Log::info(json_encode($res));
-        return response()->json($res);
-
-
+        // $miniProgram = \EasyWeChat::miniProgram();
+        // $res = $miniProgram->PhoneNumber->getUserPhoneNumber($request->code);
+        // Log::info(json_encode($res));
+        // return response()->json($res);
         try {
             $iv = $request->iv;
             $encryptedData = $request->encryptedData;
@@ -68,6 +66,7 @@ class WeChatController extends Controller
             
             $userInfo = $miniProgram->encryptor->decryptData($session_key, $iv, $encryptedData);
             Log::info(json_encode($userInfo));
+            return response()->json($userInfo);
             if ($userInfo) {
                 // 查找是否注册
                 $mobile = $userInfo['purePhoneNumber'];
