@@ -19,6 +19,8 @@ Route::prefix('v1')
 ->group(function() {
     Route::middleware('auth:sanctum')->group(function() {
         // 登录可以访问
+        // 判断是否登录
+        Route::get('islogin', 'WechatController@isLogin');
     });
     Route::group([], function() {
         // 游客可以访问
@@ -30,10 +32,6 @@ Route::prefix('v1')
         Route::get('module-menu/{module_menu_id}', 'ModuleMenuController@index')->name('module-menu');
         // setting
         Route::get('setting', 'SettingController@index');
-        Route::group(['middleware' => ['auth:sanctum']], function() {
-            // 判断是否登录
-            Route::get('islogin', 'WechatController@isLogin');
-        });
        
         // 提交问题
         Route::post('question', 'QuestionController@postQuestion');
