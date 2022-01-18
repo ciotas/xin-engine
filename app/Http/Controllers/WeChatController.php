@@ -10,16 +10,22 @@ use Illuminate\Support\Facades\Log;
 
 class WeChatController extends Controller
 {
+
+    public function test()
+    {
+        $app = \EasyWeChat::work(); 
+        return $app->kf->getAccountLink('kfc7ea12e1bb338ea31', 'hello');
+
+    }
     public function serve(Request $request)
     {
         Log::info($request->all());
-        return;
-
         $app = app('wechat.work');
 
         // $app->server->push(function($message){
         //     return "欢迎关注 overtrue！";
         // });
+        $app->kf->getAccountLink('kfc7ea12e1bb338ea31', 'hello');
 
         return $app->kf->event([
 

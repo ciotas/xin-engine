@@ -21,3 +21,4 @@ Route::any('wechat', 'WeChatController@serve');
 // 微信公众号回调url
 Route::any('wechat/server', 'WeChatController@server');
 
+Route::any('wechat/test', 'WeChatController@test');

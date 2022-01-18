@@ -17,7 +17,7 @@
         "laravel/scout": "^9.3",
         "laravel/tinker": "^2.5",
         "meilisearch/meilisearch-php": "^0.20.0",
-        "overtrue/laravel-wechat": "^5.0",
+        "overtrue/laravel-wechat": "^6.0",
         "simplesoftwareio/simple-qrcode": "~4"
     },
     "require-dev": {
