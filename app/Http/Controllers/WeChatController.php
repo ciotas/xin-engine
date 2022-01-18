@@ -13,6 +13,7 @@ class WeChatController extends Controller
     public function serve(Request $request)
     {
         Log::info($request->all());
+        return;
 
         $app = app('wechat.work');
 
@@ -20,12 +21,13 @@ class WeChatController extends Controller
         //     return "欢迎关注 overtrue！";
         // });
 
-        $app->server->addEventListener('enter_session', function($message, \Closure $next) {
-            return '感谢您关注 EasyWeChat enter_session!';
-        });
+        return $app->kf->event([
 
-        Log::info($app->server->serve());
-        return $app->server->serve();
+        ]);
+        
+
+        // Log::info($app->server->serve());
+        // return $app->server->serve();
 
     }
 
