@@ -25,15 +25,9 @@ class WeChatController extends Controller
         // $app->server->push(function($message){
         //     return "欢迎关注 overtrue！";
         // });
-        $app->kf->getAccountLink('kfc7ea12e1bb338ea31', 'hello');
-
-        return $app->kf->event([
-
-        ]);
-        
-
-        // Log::info($app->server->serve());
-        // return $app->server->serve();
+       
+        Log::info($app->server->serve());
+        return $app->server->serve();
 
     }
 
@@ -44,6 +38,12 @@ class WeChatController extends Controller
             return "欢迎关注 overtrue！";
         });
 
+        return $app->server->serve();
+    }
+
+    public function kf(Request $request)
+    {
+        $app = app('wechat.work');
         return $app->server->serve();
     }
 
