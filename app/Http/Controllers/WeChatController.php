@@ -13,10 +13,10 @@ class WeChatController extends Controller
 
     public function test()
     {
-        $app = \EasyWeChat::work(); 
-        return $app->kf->getAccountLink('kfc7ea12e1bb338ea31', 'hello');
-
+        $work = \EasyWeChat::work();
+        return $work->kf_account->getAccountLink('kfc7ea12e1bb338ea31', 'hello');
     }
+
     public function serve(Request $request)
     {
         Log::info($request->all());
