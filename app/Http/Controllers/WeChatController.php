@@ -29,6 +29,14 @@ class WeChatController extends Controller
     public function serve(Request $request)
     {
         Log::info($request->getContent ());
+        $xml_string = $request->getContent();
+        $xml = simplexml_load_string($xml_string);
+
+        $json = json_encode($xml);
+
+        Log::info($json);
+        // $array = json_decode($json,TRUE);
+
         $app = app('wechat.work');
         // $app->kf_message->event();
 
