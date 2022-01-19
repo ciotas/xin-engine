@@ -30,7 +30,7 @@ class WeChatController extends Controller
     {
         Log::info($request->all());
         $app = app('wechat.work');
-        $app->kf_message->event();
+        // $app->kf_message->event();
 
         // $app->server->push(function($message){
         //     return "欢迎关注 overtrue！";
