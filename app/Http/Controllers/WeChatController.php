@@ -28,7 +28,7 @@ class WeChatController extends Controller
 
     public function serve(Request $request)
     {
-        Log::info($request->all());
+        Log::info($request->ToUserName);
         $app = app('wechat.work');
         // $app->kf_message->event();
 
