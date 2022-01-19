@@ -10,23 +10,32 @@ use Illuminate\Support\Facades\Log;
 
 class WeChatController extends Controller
 {
-
     public function test()
     {
         $work = \EasyWeChat::work();
-        return $work->kf_account->getAccountLink('kfc7ea12e1bb338ea31', 'hello');
+        // 临时素材
+        // $path = '/var/www/html/storage/WechatIMG127.png';
+        // return $work->media->uploadImage($path, [
+        //     'filename' => 'wechat-kf-01',
+        //     'Content-Type' => 'image/png',
+
+        // ]);
+        // 添加客服
+        // return $work->kf_account->add('向芯团队伙伴', '3ph6OvkE4X-7OXQxjRZhr8D1_NtgSTM1alpQX2knOiT7ZR29IDP7RAM7LM7zmqovb');
+       
+        // return $work->kf_account->getAccountLink('wktIiKBwAAm7zX_w1GTbi6Vg5XwWGTyQ', 'xin-engine');
     }
 
     public function serve(Request $request)
     {
         Log::info($request->all());
         $app = app('wechat.work');
+        $app->kf_message->event();
 
         // $app->server->push(function($message){
         //     return "欢迎关注 overtrue！";
         // });
        
-        Log::info($app->server->serve());
         return $app->server->serve();
 
     }
@@ -38,12 +47,6 @@ class WeChatController extends Controller
             return "欢迎关注 overtrue！";
         });
 
-        return $app->server->serve();
-    }
-
-    public function kf(Request $request)
-    {
-        $app = app('wechat.work');
         return $app->server->serve();
     }
 
