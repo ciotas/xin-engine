@@ -23,7 +23,7 @@ class UserController extends AdminController
             $grid->column('name');
             $grid->column('email');
             $grid->column('mobile');
-            $grid->column('password_tips');
+            // $grid->column('password_tips');
             // $grid->column('avatar');
             // $grid->column('remember_token');
             // $grid->column('created_at');

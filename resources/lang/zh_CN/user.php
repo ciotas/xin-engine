@@ -5,7 +5,7 @@ return [
         'user' => '用户',
     ],
     'fields' => [
-        'name' => '老师名',
+        'name' => '名称',
         'email' => '邮箱',
         'mobile' => '手机',
         'email_verified_at' => 'email_verified_at',
