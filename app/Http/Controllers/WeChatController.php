@@ -134,4 +134,12 @@ class WeChatController extends Controller
             Log::error('获取小程序数据'.$e->getMessage());
         }
     }
+
+    public function delete()
+    {
+        $user = User::find(2);
+        $user->tokens()->delete();
+        return 'success';
+
+    }
 }
