@@ -22,6 +22,7 @@ class SettingController extends AdminController
             $grid->column('share_img')->image('', 60, 60);
             $grid->column('contact_img')->image('', 60, 60);
             $grid->column('huoban_logo')->image('', 60, 60);
+            $grid->column('huoban_poster')->image('', 60, 60);
             $grid->column('huoban_title');
             $grid->column('huoban_desc');
             $grid->column('tips')->display('查看')->modal(function ($modal) {
@@ -79,6 +80,13 @@ class SettingController extends AdminController
             $form->text('huoban_desc');
 
             $form->text('tips');
+
+            $form->image('huoban_poster')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload();
 
             $form->disableViewButton();
             $form->disableViewCheck();

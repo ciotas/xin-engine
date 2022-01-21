@@ -26,5 +26,10 @@ class Setting extends Model
         return $this->contact_img ? Storage::disk('oss')->url($this->contact_img) : '';
     }
 
+    public function getHuobanPoster()
+    {
+        return $this->huoban_poster ? Storage::disk('oss')->url($this->huoban_poster) : '';
+    }
+
 	
 }

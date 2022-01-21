@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 
 class MenuPageController extends Controller
 {
-    public function index(Request $request)
+    public function index($hid = 0)
     {
-        $menu_page = MenuPage::first();
+        if ($hid) 
+        {
+            $menu_page = MenuPage::first();
+        } else {
+
+        }
+        
         if ($menu_page) {
             $menu_page->banner = $menu_page->getBanner();
             $menu_page->video_cover = $menu_page->getVideoCover();

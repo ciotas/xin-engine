@@ -12,6 +12,7 @@ return [
         'huoban_title' => '伙伴名称',
         'huoban_desc' => '伙伴描述',
         'tips' => '表单提示',
+        'huoban_poster' => '伙伴海报'
         
     ],
     'options' => [

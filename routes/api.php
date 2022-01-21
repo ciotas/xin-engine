@@ -27,7 +27,7 @@ Route::prefix('v1')
         // 一级页面
         Route::get('home-pages', 'HomePageController@index')->name('home-pages');
         // 二级页面
-        Route::get('menu-pages', 'MenuPageController@index')->name('menu-pages');
+        Route::get('menu-pages/{hid?}', 'MenuPageController@index')->name('menu-pages');
         // 三级页面
         Route::get('module-menu/{module_menu_id}', 'ModuleMenuController@index')->name('module-menu');
         // setting
