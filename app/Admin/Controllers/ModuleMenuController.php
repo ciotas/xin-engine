@@ -5,6 +5,8 @@ namespace App\Admin\Controllers;
 use App\Admin\Forms\TabList;
 use App\Admin\Renderable\TabTable;
 use App\Admin\Repositories\ModuleMenu;
+use App\Models\ModuleMenu as ModelsModuleMenu;
+use App\Models\ModuleMenuTab;
 use App\Models\Tab;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
@@ -25,6 +27,9 @@ class ModuleMenuController extends AdminController
             $grid->column('id')->sortable();
             $grid->column('name');
             // $grid->column('en_name');
+            $grid->column('hid')->display(function($val) {
+                return ModelsModuleMenu::$headerTabs[$val];
+            });
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title($this->name.'说明');
@@ -94,6 +99,7 @@ class ModuleMenuController extends AdminController
             $form->display('id');
             $form->text('name');
             $form->text('en_name');
+            $form->select('hid')->options(ModelsModuleMenu::$headerTabs);
             $form->textarea('brief');
             $form->list('questions');
 

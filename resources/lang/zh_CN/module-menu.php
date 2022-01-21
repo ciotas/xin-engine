@@ -19,6 +19,7 @@ return [
         'video_brief' => '视频介绍',
         'video_cover' => '视频封面',
         'videos_duration' => '视频时长',
+        'hid' => '所属Tab'
     ],
     'options' => [
     ],

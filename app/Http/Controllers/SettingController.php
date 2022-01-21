@@ -15,6 +15,7 @@ class SettingController extends Controller
             $setting->huoban_logo =  $setting->getHuobanLogo();
             $setting->share_img =  $setting->getShareImg();
             $setting->contact_img =  $setting->getContactImg();
+            $setting->huoban_poster =  $setting->getHuobanPoster();
         }
         
         return response()->json([

@@ -10,11 +10,10 @@ class MenuPageController extends Controller
 {
     public function index($hid = 0)
     {
-        if (!$hid) 
-        {
+        if (!$hid) {
             $menu_page = MenuPage::first();
         } else {
-
+            $menu_page = MenuPage::where('hid', $hid)->get();
         }
         
         if ($menu_page) {
