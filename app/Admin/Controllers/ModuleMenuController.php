@@ -30,7 +30,7 @@ class ModuleMenuController extends AdminController
             // $grid->column('en_name');
             $grid->column('hid')->display(function($val) {
                 return ModuleTab::find($val)->name ?? '';
-            });
+            })->select(ModuleTab::all()->pluck('name', 'id'), true);
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title($this->name.'说明');
