@@ -38,11 +38,11 @@ Route::prefix('v1')
         // 问题标签
         Route::get('qtags', 'QTagController@index');
         // 微信授权登陆
-        Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+        Route::group(['middleware' => ['wechat.oauth']], function () {
             // 小程序授权登陆
-            Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
+            // Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
         });
-        // Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
+        Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
 
         
         // jssdk

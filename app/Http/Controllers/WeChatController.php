@@ -92,6 +92,11 @@ class WeChatController extends Controller
             
             $userInfo = $miniProgram->encryptor->decryptData($session_key, $iv, $encryptedData);
             Log::info(json_encode($userInfo));
+            //
+            $officialAccount = \EasyWeChat::officialAccount(); 
+            $user_info = $officialAccount->user->get($session['openid']);
+            Log::info(json_encode($user_info));
+            
             if ($userInfo) {
                 // 查找是否注册
                 $mobile = $userInfo['purePhoneNumber'];
