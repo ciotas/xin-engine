@@ -70,6 +70,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection tab_id
      * @property Grid\Column|Collection theme_id
      * @property Grid\Column|Collection en_name
+     * @property Grid\Column|Collection hid
      * @property Grid\Column|Collection cover
      * @property Grid\Column|Collection bg_img
      * @property Grid\Column|Collection bg_color
@@ -92,6 +93,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection huoban_logo
      * @property Grid\Column|Collection huoban_title
      * @property Grid\Column|Collection huoban_desc
+     * @property Grid\Column|Collection huoban_poster
      * @property Grid\Column|Collection link_id
      * @property Grid\Column|Collection features
      * @property Grid\Column|Collection prictice_title
@@ -104,6 +106,8 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection mobile
      * @property Grid\Column|Collection email_verified_at
      * @property Grid\Column|Collection password_tips
+     * @property Grid\Column|Collection weapp_openid
+     * @property Grid\Column|Collection weixin_session_key
      *
      * @method Grid\Column|Collection order(string $label = null)
      * @method Grid\Column|Collection id(string $label = null)
@@ -164,6 +168,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection tab_id(string $label = null)
      * @method Grid\Column|Collection theme_id(string $label = null)
      * @method Grid\Column|Collection en_name(string $label = null)
+     * @method Grid\Column|Collection hid(string $label = null)
      * @method Grid\Column|Collection cover(string $label = null)
      * @method Grid\Column|Collection bg_img(string $label = null)
      * @method Grid\Column|Collection bg_color(string $label = null)
@@ -186,6 +191,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection huoban_logo(string $label = null)
      * @method Grid\Column|Collection huoban_title(string $label = null)
      * @method Grid\Column|Collection huoban_desc(string $label = null)
+     * @method Grid\Column|Collection huoban_poster(string $label = null)
      * @method Grid\Column|Collection link_id(string $label = null)
      * @method Grid\Column|Collection features(string $label = null)
      * @method Grid\Column|Collection prictice_title(string $label = null)
@@ -198,6 +204,8 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection mobile(string $label = null)
      * @method Grid\Column|Collection email_verified_at(string $label = null)
      * @method Grid\Column|Collection password_tips(string $label = null)
+     * @method Grid\Column|Collection weapp_openid(string $label = null)
+     * @method Grid\Column|Collection weixin_session_key(string $label = null)
      */
     class Grid {}
 
@@ -263,6 +271,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection tab_id
      * @property Show\Field|Collection theme_id
      * @property Show\Field|Collection en_name
+     * @property Show\Field|Collection hid
      * @property Show\Field|Collection cover
      * @property Show\Field|Collection bg_img
      * @property Show\Field|Collection bg_color
@@ -285,6 +294,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection huoban_logo
      * @property Show\Field|Collection huoban_title
      * @property Show\Field|Collection huoban_desc
+     * @property Show\Field|Collection huoban_poster
      * @property Show\Field|Collection link_id
      * @property Show\Field|Collection features
      * @property Show\Field|Collection prictice_title
@@ -297,6 +307,8 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection mobile
      * @property Show\Field|Collection email_verified_at
      * @property Show\Field|Collection password_tips
+     * @property Show\Field|Collection weapp_openid
+     * @property Show\Field|Collection weixin_session_key
      *
      * @method Show\Field|Collection order(string $label = null)
      * @method Show\Field|Collection id(string $label = null)
@@ -357,6 +369,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection tab_id(string $label = null)
      * @method Show\Field|Collection theme_id(string $label = null)
      * @method Show\Field|Collection en_name(string $label = null)
+     * @method Show\Field|Collection hid(string $label = null)
      * @method Show\Field|Collection cover(string $label = null)
      * @method Show\Field|Collection bg_img(string $label = null)
      * @method Show\Field|Collection bg_color(string $label = null)
@@ -379,6 +392,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection huoban_logo(string $label = null)
      * @method Show\Field|Collection huoban_title(string $label = null)
      * @method Show\Field|Collection huoban_desc(string $label = null)
+     * @method Show\Field|Collection huoban_poster(string $label = null)
      * @method Show\Field|Collection link_id(string $label = null)
      * @method Show\Field|Collection features(string $label = null)
      * @method Show\Field|Collection prictice_title(string $label = null)
@@ -391,6 +405,8 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection mobile(string $label = null)
      * @method Show\Field|Collection email_verified_at(string $label = null)
      * @method Show\Field|Collection password_tips(string $label = null)
+     * @method Show\Field|Collection weapp_openid(string $label = null)
+     * @method Show\Field|Collection weixin_session_key(string $label = null)
      */
     class Show {}
 

@@ -18,14 +18,6 @@ class ModuleMenu extends Model
         'questions' => 'json'
     ];
 
-    const HEADER_TAB_NAME_A = 'a';
-    const HEADER_TAB_NAME_B = 'b';
-    public static $headerTabs = [
-        self::HEADER_TAB_NAME_A => '名称A',
-        self::HEADER_TAB_NAME_B => '名称B',
-    ];
-    
-
     public function tabs(): BelongsToMany
 	{
 		$pivotTable = 'module_menu_tab';

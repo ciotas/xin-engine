@@ -53,4 +53,7 @@ Route::group([
     $router->resource('qtags', 'QTagController');
     // 模块下的tabs
     $router->resource('module_menu_tabs', 'ModuleMenuTabController');
+    // 模块tab
+    $router->resource('module_tab', 'ModuleTabController');
+
 });

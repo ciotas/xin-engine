@@ -7,6 +7,7 @@ use App\Admin\Renderable\TabTable;
 use App\Admin\Repositories\ModuleMenu;
 use App\Models\ModuleMenu as ModelsModuleMenu;
 use App\Models\ModuleMenuTab;
+use App\Models\ModuleTab;
 use App\Models\Tab;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
@@ -28,7 +29,7 @@ class ModuleMenuController extends AdminController
             $grid->column('name');
             // $grid->column('en_name');
             $grid->column('hid')->display(function($val) {
-                return ModelsModuleMenu::$headerTabs[$val];
+                return ModuleTab::find($val)->name ?? '';
             });
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
@@ -99,7 +100,7 @@ class ModuleMenuController extends AdminController
             $form->display('id');
             $form->text('name');
             $form->text('en_name');
-            $form->select('hid')->options(ModelsModuleMenu::$headerTabs);
+            $form->select('hid')->options(ModuleTab::all()->pluck('name', 'id'));
             $form->textarea('brief');
             $form->list('questions');
 

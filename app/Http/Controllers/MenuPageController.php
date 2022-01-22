@@ -10,11 +10,7 @@ class MenuPageController extends Controller
 {
     public function index($hid = 0)
     {
-        if (!$hid) {
-            $menu_page = MenuPage::first();
-        } else {
-            $menu_page = MenuPage::where('hid', $hid)->get();
-        }
+        $menu_page = MenuPage::first();
         
         if ($menu_page) {
             $menu_page->banner = $menu_page->getBanner();
@@ -22,7 +18,9 @@ class MenuPageController extends Controller
             $menu_page->video_url = $menu_page->getVideoUrl();
             $menu_page->image = $menu_page->getimage();
             // 主题
-            $themes = Theme::with('module_menus')->get()
+            $themes = Theme::with(['module_menus' => function($query) use ($hid) {
+                $hid ? $query->where('hid', $hid) : $query;
+            }])->get()
             ->map(function ($item, $key) {
                 foreach($item->module_menus as $module_menu)
                 {

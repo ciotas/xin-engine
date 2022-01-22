@@ -38,16 +38,19 @@ Route::prefix('v1')
         // 问题标签
         Route::get('qtags', 'QTagController@index');
         // 微信授权登陆
-        Route::group(['middleware' => ['web', 'wechat.oauth']], function () {
+        Route::group(['middleware' => ['wechat.oauth']], function () {
+            // 小程序授权登陆
+        Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
             // 微信授权登陆
             // Route::any('socials/authorizations', 'AuthorizationsController@socialStore');
         });
         
         // jssdk
         Route::get('jssdk/config', 'WechatController@jssdkconfig');
-        // 小程序授权登陆
-        Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
+        
         // 退出登录
         Route::get('user/delete', 'WeChatController@delete');
+        // 获取模块名列表
+        Route::get('menu_tabs', 'ModuleTabController@index');
     });
 });

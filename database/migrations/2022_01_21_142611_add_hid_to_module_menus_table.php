@@ -15,7 +15,7 @@ class AddHidToModuleMenusTable extends Migration
     public function up()
     {
         Schema::table('module_menus', function (Blueprint $table) {
-            $table->string('hid')->nullable()->after('en_name')->default(ModuleMenu::HEADER_TAB_NAME_A);
+            $table->string('hid')->nullable()->after('en_name');
         });
     }
 
