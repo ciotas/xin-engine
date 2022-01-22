@@ -40,10 +40,10 @@ Route::prefix('v1')
         // 微信授权登陆
         Route::group(['middleware' => ['wechat.oauth']], function () {
             // 小程序授权登陆
-        Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
-            // 微信授权登陆
-            // Route::any('socials/authorizations', 'AuthorizationsController@socialStore');
+        // Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
         });
+        Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
+
         
         // jssdk
         Route::get('jssdk/config', 'WechatController@jssdkconfig');
