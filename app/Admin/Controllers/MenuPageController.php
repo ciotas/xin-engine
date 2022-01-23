@@ -72,7 +72,6 @@ class MenuPageController extends AdminController
 
             $form->text('video_title');
 
-            // $form->url('video_url');
             $form->file('video_url')
             ->uniqueName()
             ->move('videos')

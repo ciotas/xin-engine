@@ -9,7 +9,11 @@ class ModuleTabController extends Controller
 {
     public function index()
     {
-        $tabs = ModuleTab::all();
+        $tabs = ModuleTab::all()->map(function($item, $key) {
+            $item->video_cover = $item->getVideoCover();
+            $item->video_url = $item->getVideoUrl();
+            return $item;
+        });
         return response()->json([
             'code' => 200,
             'msg'=> 'success',
