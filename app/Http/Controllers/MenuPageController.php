@@ -14,13 +14,9 @@ class MenuPageController extends Controller
         
         if ($menu_page) {
             $menu_page->banner = $menu_page->getBanner();
-            // $menu_page->video_cover = $menu_page->getVideoCover();
-            // $menu_page->video_url = $menu_page->getVideoUrl();
             $menu_page->image = $menu_page->getimage();
             // 主题
-            $themes = Theme::with(['module_menus' => function($query) use ($hid) {
-                $hid ? $query->where('hid', $hid) : $query;
-            }])->get()
+            $themes = Theme::with('module_menus')->where('hid', $hid)->get()
             ->map(function ($item, $key) {
                 foreach($item->module_menus as $module_menu)
                 {

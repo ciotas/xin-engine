@@ -7,11 +7,20 @@ use Dcat\Admin\Traits\HasDateTimeFormatter;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\Storage;
+use Spatie\EloquentSortable\Sortable;
+use Spatie\EloquentSortable\SortableTrait;
 
-class ModuleMenu extends Model
+class ModuleMenu extends Model implements Sortable
 {
-	use HasDateTimeFormatter;
+	use HasDateTimeFormatter, SortableTrait;
     protected $table = 'module_menus';
+
+    protected $sortable = [
+        // 设置排序字段名称
+        'order_column_name' => 'order_no',
+        // 是否在创建时自动排序，此参数建议设置为true
+        'sort_when_creating' => true,
+    ];
 
     protected $casts = [
         'tags_img' => 'json',

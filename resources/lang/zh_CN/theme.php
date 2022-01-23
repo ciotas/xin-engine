@@ -7,6 +7,7 @@ return [
     'fields' => [
         'title' => '主题',
         'brief' => '介绍',
+        'hid' => '模块tab'
     ],
     'options' => [
     ],

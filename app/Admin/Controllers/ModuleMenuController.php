@@ -25,10 +25,11 @@ class ModuleMenuController extends AdminController
     protected function grid()
     {
         return Grid::make(new ModuleMenu(), function (Grid $grid) {
+            $grid->model()->orderBy('order_no');
             $grid->column('id')->sortable();
             $grid->column('name');
             // $grid->column('en_name');
-            $grid->column('hid')->select(ModuleTab::all()->pluck('name', 'id'), true);
+            // $grid->column('hid')->select(ModuleTab::all()->pluck('name', 'id'), true);
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title($this->name.'说明');
@@ -78,7 +79,8 @@ class ModuleMenuController extends AdminController
 
                 return "<div style='padding:10px 10px 0'>$table</div>";
             });
-            
+            $grid->column('order_no')->orderable();
+
             $grid->disableViewButton();
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
@@ -98,7 +100,7 @@ class ModuleMenuController extends AdminController
             $form->display('id');
             $form->text('name');
             $form->text('en_name');
-            $form->select('hid')->options(ModuleTab::all()->pluck('name', 'id'));
+            // $form->select('hid')->options(ModuleTab::all()->pluck('name', 'id'));
             $form->textarea('brief');
             $form->list('questions');
 
@@ -174,7 +176,7 @@ class ModuleMenuController extends AdminController
                     // 从数据库中查出的二维数组中转化成ID
                     return array_column($v, 'id');
                 })->help('可选，请到栏目菜单先上传栏目内容');
-        
+                    
             $form->disableViewCheck();
             $form->disableViewButton();
 

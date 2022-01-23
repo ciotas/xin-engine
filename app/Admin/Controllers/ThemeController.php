@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Admin\Repositories\Theme;
 use App\Models\ModuleMenu;
+use App\Models\ModuleTab;
 use Dcat\Admin\Form;
 use Dcat\Admin\Grid;
 use Dcat\Admin\Show;
@@ -22,6 +23,8 @@ class ThemeController extends AdminController
         return Grid::make(new Theme(), function (Grid $grid) {
             $grid->column('id')->sortable();
             $grid->column('title');
+            $grid->column('hid')->select(ModuleTab::all()->pluck('name', 'id'), true);
+
             $grid->column('brief')->display('查看')->modal(function ($modal) {
                 // 设置弹窗标题
                 $modal->title($this->title.'介绍');
@@ -50,6 +53,8 @@ class ThemeController extends AdminController
         return Form::make(Theme::with('module_menus'), function (Form $form) {
             $form->display('id');
             $form->text('title');
+            $form->select('hid')->options(ModuleTab::all()->pluck('name', 'id'));
+
             $form->textarea('brief');
 
             $form->multipleSelect('module_menus', '大模块')
