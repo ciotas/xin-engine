@@ -16,7 +16,9 @@ class MenuPageController extends Controller
             $menu_page->banner = $menu_page->getBanner();
             $menu_page->image = $menu_page->getimage();
             // 主题
-            $themes = Theme::with('module_menus')->where('hid', $hid)->get()
+            $themes = Theme::with(['module_menus' => function($query) {
+                return $query->orderBy('order_no');
+            }])->where('hid', $hid)->get()
             ->map(function ($item, $key) {
                 foreach($item->module_menus as $module_menu)
                 {
