@@ -60,31 +60,31 @@ class MenuPageController extends AdminController
             ->chunkSize(1024)
             ->autoUpload();
 
-            // $form->text('video_title');
+            $form->text('video_title');
 
-            // $form->file('video_url')
-            // ->uniqueName()
-            // ->move('videos')
-            // ->accept('mp4,mov,ogg,avi', 'video/*')
-            // ->maxSize(1024 * 100)
-            // ->autoUpload()->help('视频大小不超过100M，请等待上传成功提示出现后，再提交表单！');
+            $form->file('video_url')
+            ->uniqueName()
+            ->move('videos')
+            ->accept('mp4,mov,ogg,avi', 'video/*')
+            ->maxSize(1024 * 100)
+            ->autoUpload()->help('视频大小不超过100M，请等待上传成功提示出现后，再提交表单！');
 
-            // $form->image('video_cover')
-            // ->uniqueName()
-            // ->move('images')
-            // ->accept('jpg,png,gif,jpeg', 'image/*')
-            // ->chunkSize(1024)
-            // ->autoUpload();
+            $form->image('video_cover')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png,gif,jpeg', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload();
         
 
-            // $form->textarea('video_brief');
+            $form->textarea('video_brief');
           
-            // $form->image('image')
-            // ->uniqueName()
-            // ->move('images')
-            // ->accept('jpg,png,gif,jpeg', 'image/*')
-            // ->chunkSize(1024)
-            // ->autoUpload();
+            $form->image('image')
+            ->uniqueName()
+            ->move('images')
+            ->accept('jpg,png,gif,jpeg', 'image/*')
+            ->chunkSize(1024)
+            ->autoUpload();
         
             $form->disableViewCheck();
 
