@@ -125,7 +125,7 @@ class TabController extends AdminController
             ->accept('jpg,png,gif,jpeg', 'image/*')
             ->chunkSize(1024)
             ->autoUpload();
-            $form->text('prictice_video_duration');
+            // $form->text('prictice_video_duration');
             $form->number('prictice_difficult')->rules('numeric|min:0|max:5')->help('总分5分，例如：1星=1分');
 
             $form->table('prictice_points', function ($table) {

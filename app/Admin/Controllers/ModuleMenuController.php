@@ -60,7 +60,7 @@ class ModuleMenuController extends AdminController
                 $modal->icon('feather icon-file-text');
                 return "<div style='padding:10px 10px 0'>$this->video_brief</div>";
             });
-            $grid->column('videos_duration');
+            // $grid->column('videos_duration');
 
             $grid->column('tabs','所属栏目')->display('栏目')
             ->modal(function ($modal) {
@@ -151,7 +151,7 @@ class ModuleMenuController extends AdminController
             ->chunkSize(1024)
             ->autoUpload();
 
-            $form->text('videos_duration');
+            // $form->text('videos_duration');
             $form->divider();
 
             // $form->multipleSelectTable('tabs', '栏目Tab')
