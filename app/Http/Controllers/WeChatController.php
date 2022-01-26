@@ -138,7 +138,7 @@ class WeChatController extends Controller
 
     public function delete()
     {
-        $user = User::find(2);
+        $user = User::find(4);
         $user->tokens()->delete();
         return 'success';
 
