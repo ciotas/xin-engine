@@ -29,7 +29,7 @@ class ModuleMenuTabController extends AdminController
             $grid->column('module_menu_id')->display(function($val) {
                 return ModuleMenu::find($val)->name;
             });
-            $grid->column('order')->orderable();
+            $grid->column('order')->editable();
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->panel();
                 $filter->equal('module_menu_id')->select(ModuleMenu::all()->pluck('name', 'id'));

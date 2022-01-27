@@ -14,7 +14,7 @@ class ModuleMenuTabObserver
      */
     public function created(ModuleMenuTab $moduleMenuTab)
     {
-        $moduleMenuTab->order = $moduleMenuTab->id;
+        // $moduleMenuTab->order = $moduleMenuTab->id;
     }
 
     /**
