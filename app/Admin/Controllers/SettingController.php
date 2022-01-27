@@ -32,6 +32,20 @@ class SettingController extends AdminController
                 $modal->icon('feather icon-file-text');
                 return "<div style='padding:10px 10px 0'>$this->tips</div>";
             });
+            $grid->column('home_button_text')->display('查看')->modal(function ($modal) {
+                // 设置弹窗标题
+                $modal->title('提示');
+                // 自定义图标
+                $modal->icon('feather icon-file-text');
+                return "<div style='padding:10px 10px 0'>$this->home_button_text</div>";
+            });
+            $grid->column('bottom_text')->display('查看')->modal(function ($modal) {
+                // 设置弹窗标题
+                $modal->title('提示');
+                // 自定义图标
+                $modal->icon('feather icon-file-text');
+                return "<div style='padding:10px 10px 0'>$this->bottom_text</div>";
+            });
 
             $grid->filter(function (Grid\Filter $filter) {
                 $filter->equal('id');
@@ -88,6 +102,9 @@ class SettingController extends AdminController
             ->chunkSize(1024)
             ->autoUpload();
 
+            $form->text('home_button_text');
+            $form->text('bottom_text');
+            
             $form->disableViewButton();
             $form->disableViewCheck();
         });

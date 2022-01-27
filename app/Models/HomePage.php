@@ -11,7 +11,6 @@ class HomePage extends Model
 {
 	use HasDateTimeFormatter;
     protected $table = 'home_pages';
-    // protected $fillable = ['banners', 'service_items', 'service_steps', 'brief', 'examples'];
     
     protected $casts = [
         'banners' => 'json',

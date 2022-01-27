@@ -11,8 +11,10 @@ return [
         'huoban_logo' => '伙伴logo',
         'huoban_title' => '伙伴名称',
         'huoban_desc' => '伙伴描述',
-        'tips' => '表单提示',
-        'huoban_poster' => '伙伴海报'
+        'tips' => '伙伴按钮文字',
+        'huoban_poster' => '伙伴海报',
+        'home_button_text' => '首页按钮文字',
+        'bottom_text' => '页面底部文字'
         
     ],
     'options' => [
