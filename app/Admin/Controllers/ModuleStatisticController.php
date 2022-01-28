@@ -19,7 +19,7 @@ class ModuleStatisticController extends AdminController
     protected function grid()
     {
         return Grid::make(new ModuleStatistic(), function (Grid $grid) {
-            $grid->model()->orderBy('num');
+            $grid->model()->orderBy('num', 'desc');
             // $grid->column('id')->sortable();
             // $grid->column('module_tab_id');
             // $grid->column('theme_id');
