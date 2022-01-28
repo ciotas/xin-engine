@@ -18,6 +18,7 @@ class ModuleTabController extends AdminController
     protected function grid()
     {
         return Grid::make(new ModuleTab(), function (Grid $grid) {
+            $grid->model()->orderBy('order_no');
             $grid->column('id')->sortable();
             $grid->column('name');
             $grid->column('video_title');
