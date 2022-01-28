@@ -55,5 +55,7 @@ Route::group([
     $router->resource('module_menu_tabs', 'ModuleMenuTabController');
     // 模块tab
     $router->resource('module_tab', 'ModuleTabController');
+    // modulle 统计
+    $router->resource('module_statistic', 'ModuleStatisticController');
 
 });

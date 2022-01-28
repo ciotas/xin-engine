@@ -78,6 +78,7 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection tags_img
      * @property Grid\Column|Collection questions
      * @property Grid\Column|Collection videos_duration
+     * @property Grid\Column|Collection order_no
      * @property Grid\Column|Collection email
      * @property Grid\Column|Collection token
      * @property Grid\Column|Collection tokenable_type
@@ -94,6 +95,8 @@ namespace Dcat\Admin {
      * @property Grid\Column|Collection huoban_title
      * @property Grid\Column|Collection huoban_desc
      * @property Grid\Column|Collection huoban_poster
+     * @property Grid\Column|Collection home_button_text
+     * @property Grid\Column|Collection bottom_text
      * @property Grid\Column|Collection link_id
      * @property Grid\Column|Collection features
      * @property Grid\Column|Collection prictice_title
@@ -176,6 +179,7 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection tags_img(string $label = null)
      * @method Grid\Column|Collection questions(string $label = null)
      * @method Grid\Column|Collection videos_duration(string $label = null)
+     * @method Grid\Column|Collection order_no(string $label = null)
      * @method Grid\Column|Collection email(string $label = null)
      * @method Grid\Column|Collection token(string $label = null)
      * @method Grid\Column|Collection tokenable_type(string $label = null)
@@ -192,6 +196,8 @@ namespace Dcat\Admin {
      * @method Grid\Column|Collection huoban_title(string $label = null)
      * @method Grid\Column|Collection huoban_desc(string $label = null)
      * @method Grid\Column|Collection huoban_poster(string $label = null)
+     * @method Grid\Column|Collection home_button_text(string $label = null)
+     * @method Grid\Column|Collection bottom_text(string $label = null)
      * @method Grid\Column|Collection link_id(string $label = null)
      * @method Grid\Column|Collection features(string $label = null)
      * @method Grid\Column|Collection prictice_title(string $label = null)
@@ -279,6 +285,7 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection tags_img
      * @property Show\Field|Collection questions
      * @property Show\Field|Collection videos_duration
+     * @property Show\Field|Collection order_no
      * @property Show\Field|Collection email
      * @property Show\Field|Collection token
      * @property Show\Field|Collection tokenable_type
@@ -295,6 +302,8 @@ namespace Dcat\Admin {
      * @property Show\Field|Collection huoban_title
      * @property Show\Field|Collection huoban_desc
      * @property Show\Field|Collection huoban_poster
+     * @property Show\Field|Collection home_button_text
+     * @property Show\Field|Collection bottom_text
      * @property Show\Field|Collection link_id
      * @property Show\Field|Collection features
      * @property Show\Field|Collection prictice_title
@@ -377,6 +386,7 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection tags_img(string $label = null)
      * @method Show\Field|Collection questions(string $label = null)
      * @method Show\Field|Collection videos_duration(string $label = null)
+     * @method Show\Field|Collection order_no(string $label = null)
      * @method Show\Field|Collection email(string $label = null)
      * @method Show\Field|Collection token(string $label = null)
      * @method Show\Field|Collection tokenable_type(string $label = null)
@@ -393,6 +403,8 @@ namespace Dcat\Admin {
      * @method Show\Field|Collection huoban_title(string $label = null)
      * @method Show\Field|Collection huoban_desc(string $label = null)
      * @method Show\Field|Collection huoban_poster(string $label = null)
+     * @method Show\Field|Collection home_button_text(string $label = null)
+     * @method Show\Field|Collection bottom_text(string $label = null)
      * @method Show\Field|Collection link_id(string $label = null)
      * @method Show\Field|Collection features(string $label = null)
      * @method Show\Field|Collection prictice_title(string $label = null)
