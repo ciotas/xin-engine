@@ -43,7 +43,6 @@ Route::prefix('v1')
             // Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
         });
         Route::any('miniprogram/socials/authorizations', 'WeChatController@minProgramSocialStore');
-
         
         // jssdk
         Route::get('jssdk/config', 'WechatController@jssdkconfig');

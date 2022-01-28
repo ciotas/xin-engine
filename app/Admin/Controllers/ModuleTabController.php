@@ -62,8 +62,10 @@ class ModuleTabController extends AdminController
             ->chunkSize(1024)
             ->autoUpload();
             $form->textarea('video_brief');
+            $form->number('order_no');
             $form->disableViewButton();
             $form->disableViewCheck();
+            
         });
     }
 }
