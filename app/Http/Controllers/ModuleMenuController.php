@@ -47,13 +47,11 @@ class ModuleMenuController extends Controller
     {
         $static = ModuleStatistic::where(['module_menu_id' => $module_menu_id])->first();
         if (!$static) {
-            ModuleStatistic::create([
+            $static = ModuleStatistic::create([
                 'module_menu_id' => $module_menu_id,
-                'num' => 1
             ]);
-        } else {
-            $static->num++;
-            $static->save();
         }
+        $static->num++;
+        $static->save();
     }
 }
