@@ -30,6 +30,7 @@ class ModuleTabController extends AdminController
                 return "<div style='padding:10px 10px 0'>$this->video_brief</div>";
             });
             $grid->column('video_cover')->image('', 60, 60);
+            $grid->column('order_no')->editable();
             $grid->disableRowSelector();
             $grid->disableViewButton();
         });
