@@ -25,9 +25,10 @@ class Knowledge extends EloquentRepository
             $search = $query_str['_search_'];
         }
         $builder = $search ? ModelsKnowledge::search($search) : ModelsKnowledge::query();
+        $knowledges = $builder->get();
         return $model->makePaginator(
-            $data['total'] = $builder->count() ?? 0, // 传入总记录数
-            $data['subjects'] = $builder->get() ?? [] // 传入数据二维数组
+            $data['total'] = $knowledges->count() ?? 0, // 传入总记录数
+            $data['subjects'] = $knowledges ?? [] // 传入数据二维数组
         );
 
     }
