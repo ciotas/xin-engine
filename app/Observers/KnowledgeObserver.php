@@ -14,7 +14,7 @@ class KnowledgeObserver
      */
     public function created(Knowledge $knowledge)
     {
-        //
+        $knowledge->tags()->searchable();
     }
 
     /**

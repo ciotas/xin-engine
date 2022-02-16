@@ -20,9 +20,10 @@ class Knowledge extends Model
 	public function toSearchableArray()
     {
         $array = $this->toArray();
-		$array['content'] = strip_tags($array['content']);
-		$tagnames = array_column($array['tags'], 'name');
-		$array['tags'] = implode(',', $tagnames);
+		if(!empty($array)) {
+			$array['content'] = strip_tags($array['content']);
+		}
+		
         return $array;
     }
 
